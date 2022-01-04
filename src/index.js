@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import ChildMain from "./Child/ChildMain";
 import AdminMain from './Admin/AdminMain'
+import LoginPage from './Admin/Pages/LoginPage'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Routes>
       <Route path="/" element={<App />} />
       <Route path="admin" element={<AdminMain />} />
+      <Route path="admin/login" element={<LoginPage />} />
       <Route path="child" element={<ChildMain />} />
     </Routes>
 
