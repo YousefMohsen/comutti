@@ -4,11 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
-
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import ChildMain from "./Child/ChildMain";
+import AdminMain from './Admin/AdminMain'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <BrowserRouter> 
+      <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="admin" element={<AdminMain />} />
+      <Route path="child" element={<ChildMain />} />
+    </Routes>
+
+
+
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

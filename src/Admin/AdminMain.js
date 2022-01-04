@@ -1,7 +1,9 @@
 
 function AdminMain() {
   return (
-    <div className="">
+    <div className="container">
+      
+      
         <div>This is the admin page</div>
 
     </div>

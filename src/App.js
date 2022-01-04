@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import { Button } from 'antd';
+import logo from "./logo.svg";
+import "./App.css";
+import { Button } from "antd";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Button type="primary" shape="round"  >Test Button</Button>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <Button className="mb-4" type="primary" shape="round">
+          <Link to="/admin"> Admin Page</Link>
+        </Button>
+        <Button type="secondary" shape="round">
+        <Link to="/child"> Child Page</Link>
+        </Button>
       </header>
     </div>
   );

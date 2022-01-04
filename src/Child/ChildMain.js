@@ -1,8 +1,8 @@
 
 function ChildMain() {
     return (
-      <div className="">
-          <div>This is the child page</div>
+      <div className="container">
+      <div>This is the CHIILD page</div>
   
       </div>
     );
