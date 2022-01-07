@@ -1,27 +1,43 @@
-import { Avatar } from "antd";
+import { Avatar, Button } from "antd";
 import { ArrowLeftOutlined, TranslationOutlined } from "@ant-design/icons";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import "./Topbar.css";
 
 function Topbar({ userLoggedIn = false }) {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  if (userLoggedIn) {
+    return (
+      <div className="topbar-container">
+        <ArrowLeftOutlined
+          style={{ fontSize: "20px" }}
+          onClick={() => navigate(-1)}
+        />
+        <div className="right-tems">
+          <Avatar
+            style={{
+              backgroundColor: "#f56a00",
+              verticalAlign: "middle",
+            }}
+            size="medium"
+          />
+
+          <p>Jon Snow</p>
+          <TranslationOutlined style={{ marginLeft: "15px" }} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="topbar-container">
-      <ArrowLeftOutlined style={{ fontSize: "20px" }} onClick={() => navigate(-1)}/>
-
+      <img src="logo.png" />
       <div className="right-tems">
-        <Avatar
-          style={{
-            backgroundColor: "#f56a00",
-            verticalAlign: "middle",
-          }}
-          size="medium"
-        />
-
-        <p>Jon Snow</p>
-        <TranslationOutlined style={{ marginLeft: "15px" }} />
+        <Button style={{ marginRight: "10px" }} type="primary">
+          Login{" "}
+        </Button>
+        <Button type="default">Register </Button>
       </div>
     </div>
   );
