@@ -1,4 +1,5 @@
 import Topbar from './Components/Topbar'
+import ProfileInfoBar from './Components/ProfileInfoBar'
 import React from 'react';
 
 
@@ -8,6 +9,7 @@ function AdminMain() {
 
 
     <Topbar />
+    <ProfileInfoBar/>
 
     <div className="container">
       

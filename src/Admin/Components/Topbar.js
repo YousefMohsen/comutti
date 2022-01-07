@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./Topbar.css";
 
-function Topbar({ userLoggedIn = false }) {
+function Topbar({ userLoggedIn = true }) {
   const navigate = useNavigate();
 
   if (userLoggedIn) {

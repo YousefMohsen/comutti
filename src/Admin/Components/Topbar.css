@@ -18,5 +18,35 @@
 
 .topbar-container img{
     width: 180px;
+    
+
+}
+
+/*profile bar*/
+
+.profile-bar-container{
+    border-bottom: 1px solid #d7d7d7;
+
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;;
+}
+
+.info-section{
+    max-width: 500px;
+    margin-left: 30px;
+    
+}
+.info-minutes{
+text-align: center;
+}
+.info-children{
+    margin-right: 30px;
+
+text-align: center;
+}
+.profile-right-tems,.profile-left-items{
+    display: flex;
 
 }
