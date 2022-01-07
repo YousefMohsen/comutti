@@ -1,0 +1,17 @@
+.topbar-container {
+  border-bottom: 1px solid #d7d7d7;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar-container .right-tems {
+  display: flex;
+  align-items: center;
+}
+
+.topbar-container .right-tems p {
+  margin-bottom: 0px !important;
+  margin-left: 5px;
+}

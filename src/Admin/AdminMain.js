@@ -1,12 +1,21 @@
+import Topbar from './Components/Topbar'
+import React from 'react';
+
 
 function AdminMain() {
   return (
+    <React.Fragment>
+
+
+    <Topbar />
+
     <div className="container">
-      
       
         <div>This is the admin page</div>
 
     </div>
+    </React.Fragment>
+
   );
 }
 
