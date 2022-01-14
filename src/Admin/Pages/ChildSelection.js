@@ -3,7 +3,7 @@ import ProfileInfoBar from '../Components/ProfileInfoBar';
 import React from 'react';
 import { Table, Tag, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 
 const { Column, ColumnGroup } = Table;
 
@@ -26,7 +26,16 @@ const data = [
   },
 ];
 
+/*const history = useHistory();
+
+function handleClick() {
+  history.push("/admin/overview/profile");
+}*/
+
 function ChildSelection() {
+
+  const navigate = useNavigate();
+
   return (
     <React.Fragment>
 
@@ -44,8 +53,12 @@ function ChildSelection() {
         </Button>
         </Link>
 
-    <Table dataSource={data} >
-      <Column title="Name" dataIndex="name" key="name" link="admin/overview/profile"/>
+    <Table dataSource={data} onRow={(record, rowIndex) => {
+    return {
+      onClick: event => {navigate('/admin/overview/profile/'+record.name)} , // click row
+    };
+  }}>
+      <Column title="Name" dataIndex="name" key="name"/>
       <Column title="Date" dataIndex="date" key="date" sorter={{
       compare: (a, b) => a - b,
       multiple: 2,

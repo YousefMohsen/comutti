@@ -26,6 +26,9 @@ const data = [
   },
 ];
 
+function handleClick()
+{}
+
 function AdminMain() {
   return (
     <React.Fragment>
@@ -44,7 +47,12 @@ function AdminMain() {
         </Button>
         </Link>
 
-    <Table dataSource={data} >
+    <Table dataSource={data} onRow={(record, rowIndex) => {
+      return {
+        onClick: event => <Link to="/admin/heyyy"> </Link>
+      };
+    }
+  }>
       <Column title="Name" dataIndex="name" key="name" />
       <Column title="Date" dataIndex="date" key="date" sorter={{
       compare: (a, b) => a - b,
