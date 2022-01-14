@@ -10,7 +10,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
 
         <Button className="mb-4" type="primary" shape="round">
-          <Link to="/admin/overivew"> Admin Page</Link>
+          <Link to="/admin/overview"> Admin Page</Link>
         </Button>
         <Button type="secondary" shape="round">
         <Link to="/child"> Child Page</Link>

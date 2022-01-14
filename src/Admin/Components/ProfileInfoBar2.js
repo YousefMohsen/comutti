@@ -4,9 +4,9 @@ import { ArrowLeftOutlined, TranslationOutlined } from "@ant-design/icons";
 import "./Topbar.css";
 const { Title, Text } = Typography;
 
-//this is the profile info bar of the therapist profile
+//this is the profile info bar of a child profile
 
-function ProfileInfoBar({ userLoggedIn = true }) {
+function ProfileInfoBar2({ userLoggedIn = true }) {
   return (
     <div className="profile-bar-container">
       <div className="profile-left-items">
@@ -19,10 +19,9 @@ function ProfileInfoBar({ userLoggedIn = true }) {
         size={100}
       />
       <div className="info-section">
-        <Title level={4}>Welcome Back Mario</Title>
+        <Title level={4}>Dario's Profile</Title>
         <Text>
-          Here you will find all the profiles of the children you have already
-          worked with, with their sessions sorted in chronological order.
+          Here you will find all the recordings regarding the child. You can consult them or create new ones.
         </Text>
       </div>
 
@@ -32,11 +31,11 @@ function ProfileInfoBar({ userLoggedIn = true }) {
       <div className="profile-right-tems">
 
 
-      <div className="info-children">
+      <div className="info-stories">
         <Text>
-         Children
+         Stories
         </Text>
-        <Title level={4}>3</Title>
+        <Title level={4}>4</Title>
 
       </div>
       <div className="info-minutes">
@@ -69,4 +68,4 @@ function ProfileInfoBar({ userLoggedIn = true }) {
     );*/
 }
 
-export default ProfileInfoBar;
+export default ProfileInfoBar2;

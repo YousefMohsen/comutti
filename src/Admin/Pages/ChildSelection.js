@@ -1,5 +1,5 @@
-import Topbar from '../Components/Topbar'
-import ProfileInfoBar2 from '../Components/ProfileInfoBar2'
+import Topbar from '../Components/Topbar';
+import ProfileInfoBar from '../Components/ProfileInfoBar';
 import React from 'react';
 import { Table, Tag, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
@@ -10,48 +10,48 @@ const { Column, ColumnGroup } = Table;
 const data = [
   {
 
-    name: 'Woof Story',
+    name: 'John',
     date: '2021-02-06 08:28:36',
 
   },
   {
-    name: 'Jimbo & Garry are going to the beach',
+    name: 'Jim',
     date: '2021-02-05 08:28:36',
 
   },
   {
-    name: 'Things & Colors',
+    name: 'Joe',
     date: '2021-02-08 08:28:36',
 
   },
 ];
 
-function AdminMain() {
+function ChildSelection() {
   return (
     <React.Fragment>
 
     <Topbar />
 
-    <ProfileInfoBar2 />
+    <ProfileInfoBar />
 
     <div className="container mt-4 ">
     <Link to="/admin/record">
-    <Button  className="mt-3 mb-2 float-right" type="primary"  icon={<PlusOutlined />} size="large">
+    <Button  className="mt-3 mb-2 float-right" type="primary"  icon={<PlusOutlined />} size="large" color='#ff5c5c'>
           
 
-          Create new
+          Add new child
 
         </Button>
         </Link>
 
     <Table dataSource={data} >
-      <Column title="Name" dataIndex="name" key="name" />
+      <Column title="Name" dataIndex="name" key="name" link="admin/overview/profile"/>
       <Column title="Date" dataIndex="date" key="date" sorter={{
       compare: (a, b) => a - b,
       multiple: 2,
-
    
     }}
+  
     width="200px"
     />
 
@@ -64,4 +64,4 @@ function AdminMain() {
   );
 }
 
-export default AdminMain;
+export default ChildSelection;
