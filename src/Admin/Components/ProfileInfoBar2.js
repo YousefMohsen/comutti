@@ -6,7 +6,7 @@ const { Title, Text } = Typography;
 
 //this is the profile info bar of a child profile
 
-function ProfileInfoBar2({ userLoggedIn = true }) {
+function ProfileInfoBar2(props) {
   return (
     <div className="profile-bar-container">
       <div className="profile-left-items">
@@ -19,7 +19,7 @@ function ProfileInfoBar2({ userLoggedIn = true }) {
         size={100}
       />
       <div className="info-section">
-        <Title level={4}>Dario's Profile</Title>
+        <Title level={4}>{props.childName}'s Profile</Title>
         <Text>
           Here you will find all the recordings regarding the child. You can consult them or create new ones.
         </Text>

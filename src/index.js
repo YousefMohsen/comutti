@@ -24,7 +24,7 @@ ReactDOM.render(
       <Route path="/" element={<App />} />
       <Route path="admin" element={<AdminMain />} />
       <Route path="admin/overview" element={<ChildSelection />} />
-      <Route path="admin/overview/profile" element={<ProfileSection />} />
+      <Route path="admin/overview/profile/:childName" element={<ProfileSection />} />
       <Route path="admin/login" element={<LoginPage />} />
       <Route path="child" element={<ChildMain />} />
     </Routes>
