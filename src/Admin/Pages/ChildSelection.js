@@ -5,7 +5,7 @@ import { Table, Button, Modal, Form, InputNumber, Input} from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useNavigate} from "react-router-dom";
 
-const { Column, ColumnGroup } = Table;
+const { Column } = Table;
 
 const data = [
   {
@@ -18,7 +18,6 @@ const data = [
     key: 2,
     name: 'Jim',
     date: '2021-02-05 08:28:36',
-
   },
   {
     key : 3,
@@ -46,11 +45,11 @@ function ChildSelection() {
     //create new Child
   };
 
-  const onFinish = (values: any) => {
+  const onFinish = (values) => {
     console.log('Success:', values);
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
 

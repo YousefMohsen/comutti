@@ -32,7 +32,7 @@ function Topbar({ userLoggedIn = true }) {
 
   return (
     <div className="topbar-container">
-      <img src="logo.png" />
+      <img src="logo.png" alt="didn't load correctly"/>
       <div className="right-tems">
         <Button style={{ marginRight: "10px" }} type="primary">
           Login{" "}

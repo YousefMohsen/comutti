@@ -14,7 +14,6 @@ import AdminMain from './Admin/AdminMain'
 import LoginPage from './Admin/Pages/LoginPage'
 import ProfileSection from './Admin/Pages/ProfileSection'
 import ChildSelection from './Admin/Pages/ChildSelection';
-import { Link } from "react-router-dom";
 
 
 ReactDOM.render(

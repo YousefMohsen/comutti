@@ -1,12 +1,11 @@
 import Topbar from '../Components/Topbar'
 import ProfileInfoBar2 from '../Components/ProfileInfoBar2'
 import React from 'react';
-
-import { Table, Tag, Button } from 'antd';
+import { Table, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { Link , useParams } from "react-router-dom";
 
-const { Column, ColumnGroup } = Table;
+const { Column } = Table;
 
 const data = [
   {

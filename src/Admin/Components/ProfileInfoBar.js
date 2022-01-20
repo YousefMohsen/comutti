@@ -1,5 +1,4 @@
-import { Avatar, Button, PageHeader, Typography } from "antd";
-import { ArrowLeftOutlined, TranslationOutlined } from "@ant-design/icons";
+import { Avatar, Typography } from "antd";
 
 import "./Topbar.css";
 const { Title, Text } = Typography;
