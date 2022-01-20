@@ -30,20 +30,17 @@ const data = [
 
 const withRouter = WrappedComponent => props => {
   const params = useParams();
-  // etc... other react-router-dom v6 hooks
 
   return (
     <WrappedComponent
       {...props}
       params={params}
-      // etc...
     />
   );
 };
 
-function AdminMain(props) {
 
-  console.log(props.params.childName)
+function ProfileSection(props) {
 
   return (
     <React.Fragment>
@@ -53,14 +50,11 @@ function AdminMain(props) {
     <ProfileInfoBar2 childName={props.params.childName}/> 
 
     <div className="container mt-4 ">
-    <Link to="/admin/record">
+    <Link to={`/admin/overview/profile/stories/${props.params.childName}`}>
     <Button  className="mt-3 mb-2 float-right" type="primary"  icon={<PlusOutlined />} size="large">
-          
-
-          Create new
-
-        </Button>
-        </Link>
+      Create new
+    </Button>
+    </Link>
 
     <Table dataSource={data} >
       <Column title="Name" dataIndex="name" key="name" />
@@ -82,4 +76,4 @@ function AdminMain(props) {
   );
 }
 
-export default withRouter(AdminMain);
+export default withRouter(ProfileSection);

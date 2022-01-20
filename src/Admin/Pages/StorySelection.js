@@ -1,72 +1,58 @@
 import Topbar from '../Components/Topbar';
-import ProfileInfoBar from '../Components/ProfileInfoBar';
-import React, { useState } from 'react';
-import { Table, Card} from 'antd';
-import { useNavigate} from "react-router-dom";
+import ProfileInfoBar2 from '../Components/ProfileInfoBar2';
+import React from 'react';
+import {Card, Col, Row} from 'antd';
+import { useParams } from "react-router-dom";
 
-const { Column } = Table;
+import "./StorySelection.css";
 
-const data = [
-  {
-    key: 1,
-    name: 'John',
-    date: '2021-02-06 08:28:36',
+const withRouter = WrappedComponent => props => {
+  const params = useParams();
 
-  },
-  {
-    key: 2,
-    name: 'Jim',
-    date: '2021-02-05 08:28:36',
-  },
-  {
-    key : 3,
-    name: 'Joe',
-    date: '2021-02-08 08:28:36',
-  },
-];
+  return (
+    <WrappedComponent
+      {...props}
+      params={params}
+    />
+  );
+};
 
-function StorySelection() {
-
-  const navigate = useNavigate();
-
+function StorySelection(props) {
 
   return (
     <React.Fragment>
 
     <Topbar />
 
-    <ProfileInfoBar />
+    <ProfileInfoBar2 childName={props.params.childName}/> 
 
     <div className="container mt-4 ">
-      
-      
-      <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
-        <p>Card content</p>
-        <p>Card content</p>
-        <p>Card content</p>
-      </Card>
-      <Table dataSource={data} onRow={(record, rowIndex) => {
-        return {
-          onClick: event => {navigate('/admin/overview/profile/'+record.name)} , // click row
-        };
-      }}>
-      <Column title="Name" dataIndex="name" key="name"/>
-      <Column title="Date" dataIndex="date" key="date" sorter={{
-      compare: (a, b) => a - b,
-      multiple: 2,
-   
-    }}
-  
-    width="200px"
-    />
 
- 
+      <Row gutter={16}>
+      <Col span={8}>
+        <Card title="Woof Story" align-items="center" style={{ width: 300 }}>
+          <p><img src="/img/admin/dog.png" alt="broken" height={150} width={150} /></p>
+          <p>Launch</p>
+        </Card>
+      </Col>
+      <Col span={8}>
+        <Card title="Adventure in the woods" align-items="center" style={{ width: 300 }}>
+          <p><img src="/img/admin/forrest.png" alt="broken" height={150} width={150} /></p>
+          <p>Launch</p>
+        </Card>
+      </Col>
+      <Col span={8}>
+        <Card title="Let's buy some milk !" align-items="center" style={{ width: 300 }}>
+          <p><img src="/img/admin/supermarket.png" alt="broken" height={150} width={150} /></p>
+          <p>Launch</p>
+        </Card>
+      </Col>
+    </Row>
 
-  </Table>
     </div>
     </React.Fragment>
 
   );
 }
 
-export default StorySelection;
+export default withRouter(StorySelection);

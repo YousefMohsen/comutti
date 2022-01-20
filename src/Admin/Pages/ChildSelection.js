@@ -1,7 +1,7 @@
 import Topbar from '../Components/Topbar';
 import ProfileInfoBar from '../Components/ProfileInfoBar';
 import React, { useState } from 'react';
-import { Table, Button, Modal, Form, InputNumber, Input} from 'antd';
+import { Table, Button, Modal, Form, InputNumber, Input, notification} from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useNavigate} from "react-router-dom";
 
@@ -40,17 +40,21 @@ function ChildSelection() {
     setIsModalVisible(false);
   };
 
-  const handleSubmit = () => {
+
+  const onFinish = (values) => {
+    console.log('Success:', values);
+    notification.success({
+      message: 'Child added succesfully'
+    });
     setIsModalVisible(false);
     //create new Child
   };
 
-  const onFinish = (values) => {
-    console.log('Success:', values);
-  };
-
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
+    notification.error({
+      message: 'Informations are not complete'
+    });
   };
 
   
@@ -76,7 +80,7 @@ function ChildSelection() {
           <InputNumber />
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+          <Button type="primary" htmlType="submit">
             Submit
           </Button>
         </Form.Item>

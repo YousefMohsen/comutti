@@ -14,6 +14,7 @@ import AdminMain from './Admin/AdminMain'
 import LoginPage from './Admin/Pages/LoginPage'
 import ProfileSection from './Admin/Pages/ProfileSection'
 import ChildSelection from './Admin/Pages/ChildSelection';
+import StorySelection from './Admin/Pages/StorySelection';
 
 
 ReactDOM.render(
@@ -23,6 +24,7 @@ ReactDOM.render(
       <Route path="/" element={<App />} />
       <Route path="admin" element={<AdminMain />} />
       <Route path="admin/overview" element={<ChildSelection />} />
+      <Route path="admin/overview/profile/stories/:childName" element={<StorySelection />} />
       <Route path="admin/overview/profile/:childName" element={<ProfileSection />} />
       <Route path="admin/login" element={<LoginPage />} />
       <Route path="child" element={<ChildMain />} />
