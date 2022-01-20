@@ -1,13 +1,13 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router"
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src="/img/logo.svg" className="App-logo" alt="logo" />
 
         <Button className="mb-4" type="primary" shape="round">
           <Link to="/admin/overview"> Admin Page</Link>
