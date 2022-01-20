@@ -11,18 +11,21 @@ const data = [
   {
     key: 1,
     name: 'John',
-    date: '2021-02-06 08:28:36',
+    age: 7,
+    lastConnexion: '2021-02-06 08:28:36',
 
   },
   {
     key: 2,
     name: 'Jim',
-    date: '2021-02-05 08:28:36',
+    age: 5,
+    lastConnexion: '2021-02-05 08:28:36',
   },
   {
     key : 3,
     name: 'Joe',
-    date: '2021-02-08 08:28:36',
+    age: 5,
+    lastConnexion: '2021-02-08 08:28:36',
   },
 ];
 
@@ -94,14 +97,14 @@ function ChildSelection() {
         };
       }}>
       <Column title="Name" dataIndex="name" key="name"/>
-      <Column title="Date" dataIndex="date" key="date" sorter={{
-      compare: (a, b) => a - b,
-      multiple: 2,
-   
-    }}
-  
-    width="200px"
-    />
+      <Column title="Age" dataIndex="age" key="age"/>
+      <Column title="Last Connexion" dataIndex="lastConnexion" key="lastConnexion" 
+      sorter={{
+        compare: (a, b) => a - b,
+        multiple: 2,
+      }}
+      width="200px"
+      />
 
  
 
