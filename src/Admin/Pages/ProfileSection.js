@@ -50,7 +50,7 @@ function ProfileSection(props) {
     <ProfileInfoBar2 childName={props.params.childName}/> 
 
     <div className="container mt-4 ">
-    <Link to={`/admin/overview/profile/stories/${props.params.childName}`}>
+    <Link to={`/admin/profile/stories/${props.params.childName}`}>
     <Button  className="mt-3 mb-2 float-right" type="primary"  icon={<PlusOutlined />} size="large">
       Create new
     </Button>

@@ -93,7 +93,7 @@ function ChildSelection() {
     
       <Table dataSource={data} onRow={(record, rowIndex) => {
         return {
-          onClick: event => {navigate('/admin/overview/profile/'+record.name)} , // click row
+          onClick: event => {navigate('/admin/profile/'+record.name)} , // click row
         };
       }}>
       <Column title="Name" dataIndex="name" key="name"/>
