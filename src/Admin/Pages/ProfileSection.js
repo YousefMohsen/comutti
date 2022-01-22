@@ -3,7 +3,7 @@ import ProfileInfoBar2 from '../Components/ProfileInfoBar2'
 import React from 'react';
 import { Table, Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { Link , useParams } from "react-router-dom";
+import { Link , useNavigate, useParams } from "react-router-dom";
 
 const { Column } = Table;
 
@@ -45,6 +45,8 @@ const withRouter = WrappedComponent => props => {
 
 function ProfileSection(props) {
 
+  const navigate = useNavigate();
+
   return (
     <React.Fragment>
 
@@ -59,19 +61,18 @@ function ProfileSection(props) {
     </Button>
     </Link>
 
-    <Table dataSource={data} >
+    <Table dataSource={data} onRow={(record, rowIndex) => {
+        return {
+          onClick: event => {navigate('../admin/profile/stories/recording/'+props.params.childName+'/'+record.id)} , // click row
+        };
+      }}>
       <Column title="Title" dataIndex="title" key="title" />
       <Column title="Date" dataIndex="date" key="date" sorter={{
       compare: (a, b) => a - b,
       multiple: 2,
-
-   
     }}
     width="200px"
     />
-
- 
-
   </Table>
     </div>
     </React.Fragment>

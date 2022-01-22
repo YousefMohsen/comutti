@@ -41,13 +41,13 @@ const data = [
   },
 ];
 
-const renderCard = (card, index) => {
+const renderCard = (data, index) => {
 
   return(
     <Col span={8}>
-        <Card title={card.title} align-items="center" key={card.key} style={{ width: 300 }}>
-          <p><img src={card.image} alt="broken" height={150} width={150} /></p>
-          <p><Link to={`/admin/profile/stories/new/${card.id}`}>Launch</Link></p>
+        <Card title={data.card.title} align-items="center" key={data.card.key} style={{ width: 300 }}>
+          <p><img src={data.card.image} alt="broken" height={150} width={150} /></p>
+          <p><Link to={`/admin/profile/stories/new/${data.childName}/${data.card.id}`}>Launch</Link></p>
         </Card>
     </Col>
   )
@@ -64,7 +64,7 @@ function StorySelection(props) {
 
     <div className="container mt-4 ">
     <Row gutter={16}>
-      {data.map((renderCard))}
+      {data.map((card,index)=>renderCard({card,childName:props.params.childName},index))}
     </Row>
 
     </div>)
