@@ -1,9 +1,11 @@
 import Topbar from '../Components/Topbar';
 import ProfileInfoBar from '../Components/ProfileInfoBar';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import { getDocs,collection,addDoc } from "firebase/firestore";
 import { Table, Button, Modal, Form, InputNumber, Input, notification} from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useNavigate} from "react-router-dom";
+import { db } from "../../firebase/firebase";
 
 const { Column } = Table;
 
@@ -12,20 +14,20 @@ const data = [
     key: 1,
     name: 'John',
     age: 7,
-    lastConnexion: '2021-02-06 08:28:36',
+    lastConnection: '2021-02-06 08:28:36',
 
   },
   {
     key: 2,
     name: 'Jim',
     age: 5,
-    lastConnexion: '2021-02-05 08:28:36',
+    lastConnection: '2021-02-05 08:28:36',
   },
   {
     key : 3,
     name: 'Joe',
     age: 5,
-    lastConnexion: '2021-02-08 08:28:36',
+    lastConnection: '2021-02-08 08:28:36',
   },
 ];
 
@@ -34,6 +36,11 @@ function ChildSelection() {
   const navigate = useNavigate();
 
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [childData, setChildData] = useState([]);
+
+  const [newChildName, setNewChildName] = useState('');
+  const [newChildAge, setNewChildAge] = useState(null);
+
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -43,12 +50,44 @@ function ChildSelection() {
     setIsModalVisible(false);
   };
 
+  useEffect(() => {
+    
+    async function fetchChildren() {
+
+      collection(db, "Child")
+      const fetchedData = await getDocs(collection(db, "Child"));
+      const formatedList = fetchedData.docs.map(obj=>obj.data())
+      setChildData(formatedList)
+
+    }
+
+    fetchChildren()
+  },[])
+
+
 
   const onFinish = (values) => {
     console.log('Success:', values);
-    notification.success({
-      message: 'Child added succesfully'
-    });
+    addDoc(collection(db, "Child"), {
+      name: values.name,
+      age: values.age
+    }).then(d=>{
+      console.log('success',d)
+      notification.success({
+        message: 'Child added succesfully'
+      });
+
+    }).catch(er=>{
+      notification.error({
+        message: 'Something went wrong. Child not added.'
+      });
+      console.log("onAddnewChild.ERROR: ",er);
+
+    })
+
+
+
+
     setIsModalVisible(false);
     //create new Child
   };
@@ -60,7 +99,7 @@ function ChildSelection() {
     });
   };
 
-  
+
 
   return (
     <React.Fragment>
@@ -76,7 +115,7 @@ function ChildSelection() {
       <Modal title="Enter the child informations" visible={isModalVisible} onCancel={handleCancel} footer={null}>
       <p>
       <Form name="basic" labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
-        <Form.Item label="Name" name="childName" rules={[{ required: true, message: 'Please input a name!' }]}>
+        <Form.Item label="Name" name="name" rules={[{ required: true, message: 'Please input a name!' }]}>
           <Input />
         </Form.Item>
         <Form.Item label="Age" name="age" rules={[{ required: true, message: 'Please input an age!' }]}>
@@ -91,14 +130,14 @@ function ChildSelection() {
       </p>
       </Modal>
     
-      <Table dataSource={data} onRow={(record, rowIndex) => {
+      <Table dataSource={childData} onRow={(record, rowIndex) => {
         return {
           onClick: event => {navigate('/admin/profile/'+record.name)} , // click row
         };
       }}>
       <Column title="Name" dataIndex="name" key="name"/>
       <Column title="Age" dataIndex="age" key="age"/>
-      <Column title="Last Connexion" dataIndex="lastConnexion" key="lastConnexion" 
+      <Column title="Last Connection" dataIndex="lastConnection" key="lastConnection" 
       sorter={{
         compare: (a, b) => a - b,
         multiple: 2,
