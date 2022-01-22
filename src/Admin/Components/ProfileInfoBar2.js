@@ -35,36 +35,17 @@ function ProfileInfoBar2(props) {
          Stories
         </Text>
         <Title level={4}>4</Title>
-
       </div>
       <div className="info-minutes">
         <Text>
          Minutes
         </Text>
         <Title level={4}>25</Title>
-
       </div>
       </div>
 
     </div>
   );
-  /* return (
-      <div className="topbar-container">
- 
-        <div className="right-tems">
-          <Avatar
-            style={{
-              backgroundColor: "#f56a00",
-              verticalAlign: "middle",
-            }}
-            size="medium"
-          />
-
-          <p>Jon Snow</p>
-          <TranslationOutlined style={{ marginLeft: "15px" }} />
-        </div>
-      </div>
-    );*/
 }
 
 export default ProfileInfoBar2;

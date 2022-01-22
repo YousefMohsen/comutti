@@ -110,13 +110,13 @@ const renderTimeline = (comment, index) => {
 console.log(comment);
 
     return(
-        <p>{comment.text}</p>
+        <Timeline.Item>{comment.text}</Timeline.Item>
     )
   }
 
 function SessionPlaying(props) {
 
-  const recording = recordings[props.params.recordingId];
+  const recording = recording1;
   const recordingName = recording.story.title;
   const commentArray = recording.commentArray;
 
@@ -130,11 +130,9 @@ function SessionPlaying(props) {
       <Title level={4}>{recordingName}</Title>
     </div>
     <div className="container mt-4 ">
-    <Row gutter={16}>
       <Timeline>
-        
+        {commentArray.map((comment,index)=>renderTimeline(comment,index))}
       </Timeline>
-    </Row>
     </div>
     </React.Fragment>
 
