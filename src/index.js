@@ -16,6 +16,7 @@ import ProfileSection from './Admin/Pages/ProfileSection'
 import ChildSelection from './Admin/Pages/ChildSelection';
 import StorySelection from './Admin/Pages/StorySelection';
 import SessionPlaying from './Admin/Pages/SessionPlaying';
+import Recording from './Admin/Pages/Recording';
 
 
 ReactDOM.render(
@@ -27,7 +28,8 @@ ReactDOM.render(
       <Route path="admin/overview" element={<ChildSelection />} />
       <Route path="admin/profile/stories/:childName" element={<StorySelection />} />
       <Route path="admin/profile/:childName" element={<ProfileSection />} />
-      <Route path="admin/profile/stories/new/:storyId" element={<SessionPlaying />} />
+      <Route path="admin/profile/stories/new/:childName/:storyId" element={<SessionPlaying />} />
+      <Route path="admin/profile/stories/recording/:childName/:recordingId" element={<Recording />} />
       <Route path="admin/login" element={<LoginPage />} />
       <Route path="child" element={<ChildMain />} />
     </Routes>
