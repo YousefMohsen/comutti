@@ -9,22 +9,25 @@ const { Column } = Table;
 
 const data = [
   {
-    key : 1,
-    name: 'Woof Story',
-    date: '2021-02-06 08:28:36',
-
+    key: 1,
+    id : "0",
+    date: '2021-04-05 08:16:22',
+    image: "/img/admin/dog.png",
+    title: "Woof Story",
   },
   {
-    key : 2,
-    name: 'Jimbo & Garry are going to the beach',
-    date: '2021-02-05 08:28:36',
-
+    key: 2,
+    id : "1",
+    date: '2021-02-06 08:28:36',
+    image: "/img/admin/forrest.png",
+    title: "Adventure in the woods",
   },
   {
     key : 3,
-    name: 'Things & Colors',
-    date: '2021-02-08 08:28:36',
-
+    id : "2",
+    date: '2021-02-07 08:26:50',
+    image: "/img/admin/supermarket.png",
+    title: "Let's buy some milk !",
   },
 ];
 
@@ -57,7 +60,7 @@ function ProfileSection(props) {
     </Link>
 
     <Table dataSource={data} >
-      <Column title="Name" dataIndex="name" key="name" />
+      <Column title="Title" dataIndex="title" key="title" />
       <Column title="Date" dataIndex="date" key="date" sorter={{
       compare: (a, b) => a - b,
       multiple: 2,

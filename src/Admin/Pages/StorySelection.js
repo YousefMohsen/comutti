@@ -20,16 +20,22 @@ const withRouter = WrappedComponent => props => {
 const data = [
   {
     key: 1,
+    id : "0",
+    date: '2021-04-05 08:16:22',
     image: "/img/admin/dog.png",
     title: "Woof Story",
   },
   {
     key: 2,
+    id : "1",
+    date: '2021-02-06 08:28:36',
     image: "/img/admin/forrest.png",
     title: "Adventure in the woods",
   },
   {
     key : 3,
+    id : "2",
+    date: '2021-02-07 08:26:50',
     image: "/img/admin/supermarket.png",
     title: "Let's buy some milk !",
   },
@@ -41,7 +47,7 @@ const renderCard = (card, index) => {
     <Col span={8}>
         <Card title={card.title} align-items="center" key={card.key} style={{ width: 300 }}>
           <p><img src={card.image} alt="broken" height={150} width={150} /></p>
-          <p><Link to={`/admin/profile/stories/new/${card.key}`}>Launch</Link></p>
+          <p><Link to={`/admin/profile/stories/new/${card.id}`}>Launch</Link></p>
         </Card>
     </Col>
   )

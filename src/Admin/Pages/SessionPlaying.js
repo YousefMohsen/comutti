@@ -10,25 +10,25 @@ const {Title} = Typography;
 
 const data = [
   {
-    key : 1,
-    id: "0",
-    name: 'Woof Story',
-    date: '2021-02-06 08:28:36',
-
+    key: 1,
+    id : "0",
+    date: '2021-04-05 08:16:22',
+    image: "/img/admin/dog.png",
+    title: "Woof Story",
   },
   {
-    key : 2,
-    id: "1",
-    name: 'Jimbo & Garry are going to the beach',
-    date: '2021-02-05 08:28:36',
-
+    key: 2,
+    id : "1",
+    date: '2021-02-06 08:28:36',
+    image: "/img/admin/forrest.png",
+    title: "Adventure in the woods",
   },
   {
     key : 3,
-    id: "2",
-    name: 'Things & Colors',
-    date: '2021-02-08 08:28:36',
-
+    id : "2",
+    date: '2021-02-07 08:26:50',
+    image: "/img/admin/supermarket.png",
+    title: "Let's buy some milk !",
   },
 ];
 
@@ -62,7 +62,7 @@ function SessionPlaying(props) {
 
   const storyId=props.params.storyId;
   const storyIndex = data.findIndex(x => x.id === storyId);
-  const storyName = data[storyIndex].name;
+  const storyName = data[storyIndex].title;
 
   return (
     <React.Fragment>
