@@ -1,6 +1,6 @@
 import Topbar from '../Components/Topbar'
 import ProfileInfoBar2 from '../Components/ProfileInfoBar2'
-import {Form, Radio, Typography, Input, Button, notification} from 'antd';
+import {Form, Radio, Typography, Input, Button, notification, Spin} from 'antd';
 import {useNavigate, useParams} from "react-router-dom";
 import React, { useState,useEffect } from 'react';
 import { db } from "../../firebase/firebase";
@@ -97,6 +97,8 @@ const handleStop = (childId, comments, story, startTime) => {
 
 function SessionPlaying(props) {
 
+  const navigate = useNavigate();
+
   currentDate = new Date();
   startTime = currentDate.getTime();
 
@@ -123,12 +125,16 @@ function SessionPlaying(props) {
     fetchData();
   }, []);
 
+  if (!storyData) {
+    //wait until data is ready
+    return (
+      <div className="d-flex justify-content-center align-items-center pt-5">
+        <Spin />
+      </div>
+    );
+  }
 
   console.log("story", storyData);
-  
-
-  const navigate = useNavigate();
-
   const childId=props.params.childId;
   const storyName = storyData.title;
 
