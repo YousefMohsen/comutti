@@ -1,0 +1,9 @@
+.text {
+    position: absolute;
+    font-size: 32px;
+    width: 40ch;
+    text-align: center;
+    transform: translateX(-50%);
+    border: 5px solid #058ED9;
+    background-color: white;
+}

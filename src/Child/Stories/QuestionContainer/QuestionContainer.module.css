@@ -1,0 +1,34 @@
+.container {
+    display: grid;
+    gap:1rem;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    top:250px;
+}
+
+.button {
+    border:12px solid #058ED9;
+    outline: none !important;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 53px;
+    background: #fff;
+    padding:3em;
+}
+
+.button img {
+    height:85px;
+}
+
+.wrong {
+    border:12px solid red;   
+}
+
+.button:hover {
+    border:12px solid #5bafdc;
+}
+.wrong:hover {
+    border:12px solid red;   
+}
