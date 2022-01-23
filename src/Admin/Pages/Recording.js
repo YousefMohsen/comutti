@@ -122,7 +122,7 @@ function SessionPlaying(props) {
 
   
   //get the Recording table
-  const [RecordingData, setRecordingData] = useState([]);
+  const [recordingData, setRecordingData] = useState([]);
   useEffect(() => {
       
     async function fetchRecordings() {
@@ -131,19 +131,23 @@ function SessionPlaying(props) {
       const fetchedData = await getDocs(collection(db, "Recording"));
       const formatedList = fetchedData.docs.map(obj=>obj.data());
       setRecordingData(formatedList);
-      console.log(formatedList);
     }
 
     fetchRecordings()
   },[])
 
   //find the right recording with the id in the path
-  const recording = 0;
-  
-
-  //const recording = recordings[props.params.recordingId];
-  const recordingName = recording.story.title;
-  const commentArray = recording.commentArray;
+  const recording = recordingData[0];
+  const recData = {...recording.data() , id: recording.id};
+  console.log(recData.id);
+  //const recording0 = recordingData[0];
+  //let commentsRec0 = recording0.comments;
+  //const recordingIndex = recordingData.find(x => x.key === profileData.id);
+  //const recording = recordingData[recordingIndex];
+  //const recordingName = recording.story.title;
+  const recordingName = "";
+  //const commentArray = recording.comments;
+  const commentArray = [];
 
   return (
     <React.Fragment>
