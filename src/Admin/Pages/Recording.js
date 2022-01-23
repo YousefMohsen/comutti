@@ -26,26 +26,26 @@ const withRouter = (WrappedComponent) => (props) => {
 
 const renderTimeline = (comment, index) => {
   console.log(comment);
+  let com = JSON.parse(comment);
+  let imgSource = "/img/admin/emoji_"+com.emoji+".png";
+  console.log(imgSource);
 
   return (
     <Timeline.Item>
-      <img src={comment.emotion} alt="broken" height={20} width={20} /> "
-      {comment.text}" ({comment.time})
+      <img src={imgSource} alt="broken" height={20} width={20} /> "{com.text}" ({com.time})
     </Timeline.Item>
   );
 };
 
-function SessionPlaying(props) {
+function Recording(props) {
   const [recordingData, setRecordingData] = useState(null);
 
   const fetchRecordingData = async (recordingID) => {
-    console.log("recordingID", recordingID);
     //gets all recording for child with childID
     const docRef = doc(db, "Recording", recordingID);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       const recordingData = { ...docSnap.data(), id: docSnap.id };
-      console.log("recordingData", recordingData);
       setRecordingData(recordingData);
       // getDoc(profileData[0]).then(d=>console.log("Document data:", d))
     } else {
@@ -73,7 +73,6 @@ function SessionPlaying(props) {
   }
   const recordingName = recordingData.story.title;
   const commentArray = recordingData.comments;
-  console.log("recordingData", recordingData.story.title);
 
   return (
     <React.Fragment>
@@ -85,13 +84,11 @@ function SessionPlaying(props) {
       </div>
       <div className="container mt-4 ">
         <Timeline>
-          {commentArray.map((commentArray, index) =>
-            renderTimeline(commentArray, index)
-          )}
+          {commentArray.map((commentArray, index) => renderTimeline(commentArray, index) )}
         </Timeline>
       </div>
     </React.Fragment>
   );
 }
 
-export default withRouter(SessionPlaying);
+export default withRouter(Recording);
