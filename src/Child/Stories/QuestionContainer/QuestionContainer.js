@@ -8,7 +8,7 @@ function QuestionContainer({ bt1, bt2, bt3, bt4, correctAnswer, next }) {
   const [btn4WrongClicked, setBtn4WrongClicked] = useState(false);
 
   const btnClicked = (number) => {
-    if (number === +correctAnswer) {
+    if (!correctAnswer || number === +correctAnswer) {
       next();
     }
 
