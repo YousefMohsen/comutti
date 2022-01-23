@@ -688,7 +688,6 @@ function StoriesContainer() {
                   }
                 />
               }
-              correctAnswer="1"
               next={nextStory}
             />
           </>
