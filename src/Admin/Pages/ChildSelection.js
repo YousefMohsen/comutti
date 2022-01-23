@@ -51,7 +51,7 @@ function ChildSelection() {
     
     async function fetchChildren() {
 
-      collection(db, "Child")
+     // collection(db, "Child")
       const fetchedData = await getDocs(collection(db, "Child"));
       const formatedList = fetchedData.docs.map(obj=>{return{id:obj.id, ...obj.data()}})
       setChildData(formatedList)
