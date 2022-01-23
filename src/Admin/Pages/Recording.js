@@ -27,12 +27,13 @@ const withRouter = (WrappedComponent) => (props) => {
 const renderTimeline = (comment, index) => {
   console.log(comment);
   let com = JSON.parse(comment);
+  let minute = com.time/1000;
   let imgSource = "/img/admin/emoji_"+com.emoji+".png";
   console.log(imgSource);
 
   return (
     <Timeline.Item>
-      <img src={imgSource} alt="broken" height={20} width={20} /> "{com.text}" ({com.time})
+      <img src={imgSource} alt="broken" height={20} width={20} /> "{com.text}" ({minute}s)
     </Timeline.Item>
   );
 };
@@ -55,7 +56,7 @@ function Recording(props) {
   };
   useEffect(() => {
     async function fetchData() {
-      const recordingID = "CpvGYRkTIioV29lcGY6K";
+      const recordingID = props.params.recordingId;
 
       fetchRecordingData(recordingID);
     }

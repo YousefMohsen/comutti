@@ -34,11 +34,18 @@ let comments = [];
 let comment = Comment();
 let indexComment = 0;
 
+let currentDate = new Date();
+let startTime = currentDate.getTime();
+
 const onFinish = (values) => {
-  console.log(values)
   if(values.text!==undefined||values.emoji!==undefined)
   {
-    comment = Comment(indexComment, "124", values.text, values.emoji);
+    console.log("startTime: ", startTime);
+    currentDate = new Date();
+    const currentTime = currentDate.getTime();
+    const duration = currentTime - startTime;
+    console.log("duration: ", duration);
+    comment = Comment(indexComment, duration, values.text, values.emoji);
     comments.push(comment);
     console.log('success', comments);
     notification.success({message: 'Comment added succesfully'});
@@ -54,7 +61,7 @@ const onFinishFailed = (errorInfo) => {
   notification.error({message: 'An error occured'});
 };
 
-const handleStop = (childId, comments, story, duration) => {
+const handleStop = (childId, comments, story, startTime) => {
   console.log('Success:', comments);
   //convert each object comment into a string and then push it into an array of string
   let commentString = "";
@@ -65,15 +72,16 @@ const handleStop = (childId, comments, story, duration) => {
     commentString = JSON.stringify(comment);
     commentArrayString.push(commentString);
   }
-  const currentDate = new Date();
-  const timestamp = currentDate.getTime();
+  currentDate = new Date();
+  const currentTime = currentDate.getTime();
+  const duration = currentTime - startTime;
   //create new recording
   addDoc(collection(db, "Recording"), {
     child : childId,
     comments: commentArrayString,
     duration: duration,
     story: story,
-    time: timestamp,
+    time: currentTime,
   }).then(d=>{
     console.log('success',d);
     notification.success({
@@ -89,19 +97,20 @@ const handleStop = (childId, comments, story, duration) => {
 
 function SessionPlaying(props) {
 
+  currentDate = new Date();
+  startTime = currentDate.getTime();
+
   const [storyData, setStoryData] = useState("");
 
   const fetchProfileData = async (storyID) => {
     console.log('storyID',storyID)
-    //gets all recording for child with childID
+    //gets the story with storyID
     const docRef = doc(db, "Story", storyID);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       const storyData = { ...docSnap.data(), id: docSnap.id };
       setStoryData(storyData);
-      // getDoc(profileData[0]).then(d=>console.log("Document data:", d))
     } else {
-      // doc.data() will be undefined in this case
       console.log("No such document!");
     }
   };
@@ -158,7 +167,7 @@ function SessionPlaying(props) {
         </Form.Item>
       </Form>
 
-      <Button type="primary" onClick={() => {handleStop(childId, comments, storyData, '123') ;navigate('/admin/profile/'+childId)}}>
+      <Button type="primary" onClick={() => {handleStop(childId, comments, storyData, startTime) ;navigate('/admin/profile/'+childId)}}>
         Finish Session
       </Button>
       
