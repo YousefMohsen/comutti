@@ -5,7 +5,7 @@
     position: absolute;
     left:50%;
     transform:translateX(-50%);
-    bottom:110px;
+    top:250px;
 }
 
 .button {
@@ -15,11 +15,11 @@
     font-size: 14px;
     border-radius: 53px;
     background: #fff;
-    padding:4em;
+    padding:3em;
 }
 
 .button img {
-    width:60px
+    height:85px;
 }
 
 .wrong {

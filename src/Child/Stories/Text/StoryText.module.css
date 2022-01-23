@@ -1,7 +1,7 @@
 .text {
     position: absolute;
     font-size: 32px;
-    max-width: 30ch;
+    width: 40ch;
     text-align: center;
     transform: translateX(-50%);
     border: 5px solid #058ED9;
