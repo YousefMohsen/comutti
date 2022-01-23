@@ -56,7 +56,8 @@ function ProfileSection(props) {
     const querySnapshot = await getDocs(q);
     const mappedRecordings = [];
     querySnapshot.forEach((doc) => {
-      mappedRecordings.push({ ...doc.data(), id: doc.id });
+        const docData = doc.data()
+      mappedRecordings.push({ ...docData, id: doc.id, title: docData.story.title });
     });
 
     setRecordings(mappedRecordings);
