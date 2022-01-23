@@ -1,0 +1,19 @@
+.button {
+  padding: 0.6em 1em;
+  background-color: #ef5345;
+  outline:none;
+  font-size: 40px;
+  border: none;
+  border-radius: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.button:hover {
+  
+}

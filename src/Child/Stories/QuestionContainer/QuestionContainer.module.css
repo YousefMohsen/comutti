@@ -1,0 +1,18 @@
+.container {
+    display: grid;
+    gap:1rem;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:10%;
+}
+
+.button {
+    border:12px solid #058ED9;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 53px;
+    background: #fff;
+    padding:5em;
+}

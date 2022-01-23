@@ -1,7 +1,9 @@
 .img-container {
     background-size: contain;
+    background-color: #f4f4f4;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
     width: 100vw;
+    position: relative;
 }
