@@ -1,8 +1,10 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import QuestionContainer from "../QuestionContainer/QuestionContainer";
 import Button from "../StartButton/Button";
 import ImgContainer from "../StartPage/ImgContainer";
 import StoryText from "../Text/StoryText";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../../firebase/firebase";
 
 //from https://stackoverflow.com/questions/44607396/importing-multiple-files-in-react
 function importAll(r) {
@@ -20,7 +22,18 @@ const images = Object.values(
 );
 
 function StoriesContainer() {
-  const [currentStory, setCurrentStory] = useState(0);
+  const [currentStory, setCurrentStory] = useState(1);
+  const [storyStarted, setStoryStarted] = useState(0);
+
+  useEffect(() => {
+    const unsub = onSnapshot(
+      doc(db, "DeviceConnector", "2ZN0fs6xMbz93RjiXzrd"),
+      (doc) => {
+        console.log("Current data: ", doc.data());
+        setStoryStarted(doc.data().storyStarted);
+      }
+    );
+  }, []);
 
   const nextStory = () => {
     setCurrentStory((prev) => prev + 1);
@@ -706,6 +719,11 @@ function StoriesContainer() {
   );
 
   let content;
+  console.log("storyStarted", storyStarted);
+  if (!storyStarted) {
+    return <ImgContainer clicked={() => {}} img={frames[0].img} />;
+  }
+
   if (frames[currentStory].component) {
     content = (
       <ImgContainer
