@@ -38,9 +38,6 @@ function ChildSelection() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [childData, setChildData] = useState([]);
 
-  const [newChildName, setNewChildName] = useState('');
-  const [newChildAge, setNewChildAge] = useState(null);
-
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -56,7 +53,7 @@ function ChildSelection() {
 
       collection(db, "Child")
       const fetchedData = await getDocs(collection(db, "Child"));
-      const formatedList = fetchedData.docs.map(obj=>obj.data())
+      const formatedList = fetchedData.docs.map(obj=>{return{id:obj.id, ...obj.data()}})
       setChildData(formatedList)
 
     }
@@ -100,7 +97,7 @@ function ChildSelection() {
   };
 
 
-
+console.log('childData',childData)
   return (
     <React.Fragment>
 
@@ -132,7 +129,7 @@ function ChildSelection() {
     
       <Table dataSource={childData} onRow={(record, rowIndex) => {
         return {
-          onClick: event => {navigate('/admin/profile/'+record.name)} , // click row
+          onClick: event => {navigate('/admin/profile/'+record.id)} , // click row
         };
       }}>
       <Column title="Name" dataIndex="name" key="name"/>
