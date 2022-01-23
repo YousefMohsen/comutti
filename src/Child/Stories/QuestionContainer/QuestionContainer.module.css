@@ -5,7 +5,7 @@
     position: absolute;
     left:50%;
     transform:translateX(-50%);
-    bottom:10%;
+    bottom:110px;
 }
 
 .button {
@@ -14,5 +14,17 @@
     font-size: 14px;
     border-radius: 53px;
     background: #fff;
-    padding:5em;
+    padding:4em;
+}
+
+.button img {
+    width:60px
+}
+
+.wrong {
+    border:12px solid red;   
+}
+
+.button:hover {
+    border:12px solid #5bafdc;
 }
