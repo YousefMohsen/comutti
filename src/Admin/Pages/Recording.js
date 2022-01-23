@@ -1,47 +1,51 @@
-import Topbar from '../Components/Topbar'
-import ProfileInfoBar2 from '../Components/ProfileInfoBar2'
-import React, { useState,useEffect } from 'react';
+import Topbar from "../Components/Topbar";
+import ProfileInfoBar2 from "../Components/ProfileInfoBar2";
+import React, { useState, useEffect } from "react";
 import { db } from "../../firebase/firebase";
-import {Typography,Timeline, Row} from 'antd';
-import {useParams} from "react-router-dom";
-import {addDoc, getDoc, collection, doc, where, query, getDocs} from "firebase/firestore";
+import { Typography, Timeline, Spin } from "antd";
+import { useParams } from "react-router-dom";
+import {
+  addDoc,
+  getDoc,
+  collection,
+  doc,
+  where,
+  query,
+  getDocs,
+} from "firebase/firestore";
 
 import "./SessionPlaying.css";
 
-const {Title} = Typography;
+const { Title } = Typography;
 
-const withRouter = WrappedComponent => props => {
+const withRouter = (WrappedComponent) => (props) => {
   const params = useParams();
 
-  return (
-    <WrappedComponent
-      {...props}
-      params={params}
-    />
-  );
+  return <WrappedComponent {...props} params={params} />;
 };
 
 const renderTimeline = (comment, index) => {
-console.log(comment);
+  console.log(comment);
 
-    return(
-        <Timeline.Item><img src={comment.emotion} alt="broken" height={20} width={20} /> "{comment.text}" ({comment.time})</Timeline.Item>
-    )
-  }
-
-  
+  return (
+    <Timeline.Item>
+      <img src={comment.emotion} alt="broken" height={20} width={20} /> "
+      {comment.text}" ({comment.time})
+    </Timeline.Item>
+  );
+};
 
 function SessionPlaying(props) {
-
-  const [recordingData, setRecordingData] = useState("");
+  const [recordingData, setRecordingData] = useState(null);
 
   const fetchRecordingData = async (recordingID) => {
-    console.log('recordingID',recordingID)
+    console.log("recordingID", recordingID);
     //gets all recording for child with childID
     const docRef = doc(db, "Recording", recordingID);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       const recordingData = { ...docSnap.data(), id: docSnap.id };
+      console.log("recordingData", recordingData);
       setRecordingData(recordingData);
       // getDoc(profileData[0]).then(d=>console.log("Document data:", d))
     } else {
@@ -51,36 +55,42 @@ function SessionPlaying(props) {
   };
   useEffect(() => {
     async function fetchData() {
-      const recordingID = "CpvGYRkTIioV29lcGY6K"; 
+      const recordingID = "CpvGYRkTIioV29lcGY6K";
+
       fetchRecordingData(recordingID);
     }
 
     fetchData();
   }, []);
 
-
-  console.log("story", recordingData);
-  
+  if (!recordingData) {
+    //wait until data is ready
+    return (
+      <div className="d-flex justify-content-center align-items-center pt-5">
+        <Spin />
+      </div>
+    );
+  }
   const recordingName = recordingData.story.title;
   const commentArray = recordingData.comments;
+  console.log("recordingData", recordingData.story.title);
 
   return (
     <React.Fragment>
+      <Topbar />
 
-    <Topbar />
-
-    <ProfileInfoBar2 childName={props.params.childName}/> 
-    <div className="container mt-4 ">
-      <Title level={4}>{recordingName}</Title>
-    </div>
-    <div className="container mt-4 ">
-      <Timeline>
-        {commentArray.map((commentArray,index)=>renderTimeline(commentArray,index))}
-      </Timeline>
-    </div>
+      <ProfileInfoBar2 childName={props.params.childName} />
+      <div className="container mt-4 ">
+        <Title level={4}>{recordingName}</Title>
+      </div>
+      <div className="container mt-4 ">
+        <Timeline>
+          {commentArray.map((commentArray, index) =>
+            renderTimeline(commentArray, index)
+          )}
+        </Timeline>
+      </div>
     </React.Fragment>
-
-
   );
 }
 
