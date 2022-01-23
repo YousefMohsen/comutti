@@ -14,7 +14,6 @@ const images = Object
      .sort((a,b) => +a.default.match(/\/(\d+)/)[1] - +b.default.match(/\/(\d+)/)[1]);
 
 function StoriesContainer() {
-    console.log(images);
     
     const [currentStory,setCurrentStory] = useState(0)
 
