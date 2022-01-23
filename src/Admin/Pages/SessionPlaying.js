@@ -10,31 +10,6 @@ import "./SessionPlaying.css";
 
 const {Title} = Typography;
 
-const data = [
-  {
-    key: 1,
-    id : "0",
-    date: '2021-04-05 08:16:22',
-    image: "/img/admin/dog.png",
-    title: "Woof Story",
-  },
-  {
-    key: 2,
-    id : "1",
-    date: '2021-02-06 08:28:36',
-    image: "/img/admin/forrest.png",
-    title: "Adventure in the woods",
-  },
-  {
-    key : 3,
-    id : "2",
-    date: '2021-02-07 08:26:50',
-    image: "/img/admin/supermarket.png",
-    title: "Let's buy some milk !",
-  },
-];
-
-
 const withRouter = WrappedComponent => props => {
   const params = useParams();
 
@@ -122,7 +97,6 @@ function SessionPlaying(props) {
     const docRef = doc(db, "Story", storyID);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      console.log('sotyr',docSnap.data())
       const storyData = { ...docSnap.data(), id: docSnap.id };
       setStoryData(storyData);
       // getDoc(profileData[0]).then(d=>console.log("Document data:", d))
@@ -133,7 +107,7 @@ function SessionPlaying(props) {
   };
   useEffect(() => {
     async function fetchData() {
-      const storyID = "Gx1fPYBQa7UNWNaItUJI"; 
+      const storyID = props.params.storyId; 
       fetchProfileData(storyID);
     }
 
@@ -142,17 +116,12 @@ function SessionPlaying(props) {
 
 
   console.log("story", storyData);
-
-  const storyID = props.params.storyId;
   
 
   const navigate = useNavigate();
 
   const childId=props.params.childId;
-
-  const storyIndex = data.findIndex(x => x.id === storyID);
-  const story = data[storyIndex];
-  const storyName = story.title;
+  const storyName = storyData.title;
 
   return (
     <React.Fragment>
@@ -189,7 +158,7 @@ function SessionPlaying(props) {
         </Form.Item>
       </Form>
 
-      <Button type="primary" onClick={() => {handleStop(childId, comments, story, '123') ;navigate('/admin/profile/'+childId)}}>
+      <Button type="primary" onClick={() => {handleStop(childId, comments, storyData, '123') ;navigate('/admin/profile/'+childId)}}>
         Finish Session
       </Button>
       
