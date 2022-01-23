@@ -28,23 +28,24 @@ function QuestionContainer({ bt1, bt2, bt3, bt4, correctAnswer, next }) {
     }
   };
 
-  const btn1Classes = [styles.button,(btn1WrongClicked ? styles.wrong : null)];
-  const btn2Classes = [styles.button,(btn2WrongClicked ? styles.wrong : null)];
-  const btn3Classes = [styles.button,(btn3WrongClicked ? styles.wrong : null)];
-  const btn4Classes = [styles.button,(btn4WrongClicked ? styles.wrong : null)];
+  console.log(styles);
+  const btn1Classes = [styles.button,(btn1WrongClicked ? styles.wrong : '')].join(' ');
+  const btn2Classes = [styles.button,(btn2WrongClicked ? styles.wrong : '')].join(' ');
+  const btn3Classes = [styles.button,(btn3WrongClicked ? styles.wrong : '')].join(' ');
+  const btn4Classes = [styles.button,(btn4WrongClicked ? styles.wrong : '')].join(' ');
 
   return (
     <div className={styles.container}>
-      <button onClick={() => btnClicked(1)} className={btn1Classes.join('')}>
+      <button onClick={() => btnClicked(1)} className={btn1Classes}>
         {bt1}
       </button>
-      <button onClick={() => btnClicked(2)} className={btn2Classes.join('')}>
+      <button onClick={() => btnClicked(2)} className={btn2Classes}>
         {bt2}
       </button>
-      <button onClick={() => btnClicked(3)} className={btn3Classes.join('')}>
+      <button onClick={() => btnClicked(3)} className={btn3Classes}>
         {bt3}
       </button>
-      <button onClick={() => btnClicked(4)} className={btn4Classes.join('')}>
+      <button onClick={() => btnClicked(4)} className={btn4Classes}>
         {bt4}
       </button>
     </div>

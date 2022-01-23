@@ -10,6 +10,7 @@
 
 .button {
     border:12px solid #058ED9;
+    outline: none !important;
     cursor: pointer;
     font-size: 14px;
     border-radius: 53px;
@@ -27,4 +28,7 @@
 
 .button:hover {
     border:12px solid #5bafdc;
+}
+.wrong:hover {
+    border:12px solid red;   
 }
