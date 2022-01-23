@@ -28,8 +28,8 @@ ReactDOM.render(
       <Route path="admin/overview" element={<ChildSelection />} />
       <Route path="admin/profile/stories/:childName" element={<StorySelection />} />
       <Route path="admin/profile/:childName" element={<ProfileSection />} />
-      <Route path="admin/profile/stories/new/:childName/:storyId" element={<SessionPlaying />} />
-      <Route path="admin/profile/stories/recording/:childName/:recordingId" element={<Recording />} />
+      <Route path="admin/profile/stories/new/:childId/:storyId" element={<SessionPlaying />} />
+      <Route path="admin/profile/stories/recording/:childId/:recordingId" element={<Recording />} />
       <Route path="admin/login" element={<LoginPage />} />
       <Route path="child" element={<ChildMain />} />
     </Routes>
