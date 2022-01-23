@@ -114,15 +114,17 @@ const handleStop = (childId, comments, story, duration) => {
 
 function SessionPlaying(props) {
 
-  const [profileData, setProfileData] = useState("");
+  const [storyData, setStoryData] = useState("");
 
-  const fetchProfileData = async (childID) => {
+  const fetchProfileData = async (storyID) => {
+    console.log('storyID',storyID)
     //gets all recording for child with childID
-    const docRef = doc(db, "Story", childID);
+    const docRef = doc(db, "Story", storyID);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      const profileData = { ...docSnap.data(), id: docSnap.id };
-      setProfileData(profileData);
+      console.log('sotyr',docSnap.data())
+      const storyData = { ...docSnap.data(), id: docSnap.id };
+      setStoryData(storyData);
       // getDoc(profileData[0]).then(d=>console.log("Document data:", d))
     } else {
       // doc.data() will be undefined in this case
@@ -131,15 +133,15 @@ function SessionPlaying(props) {
   };
   useEffect(() => {
     async function fetchData() {
-      const childID = "Gx1fPYBQa7UNWNaItUJI"; 
-      fetchProfileData(childID);
+      const storyID = "Gx1fPYBQa7UNWNaItUJI"; 
+      fetchProfileData(storyID);
     }
 
     fetchData();
   }, []);
 
 
-  console.log("story", profileData);
+  console.log("story", storyData);
 
   const storyID = props.params.storyId;
   
