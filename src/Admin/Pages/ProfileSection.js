@@ -97,7 +97,7 @@ function ProfileSection(props) {
     <React.Fragment>
       <Topbar />
 
-      <ProfileInfoBar2 childName={profileData.name} />
+      <ProfileInfoBar2 childName={profileData.name}  childId={ props.params.childName}/>
 
       <div className="container mt-4 ">
         <Link to={`/admin/profile/stories/${props.params.childName}`}>

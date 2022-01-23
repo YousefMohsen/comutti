@@ -79,7 +79,7 @@ function Recording(props) {
     <React.Fragment>
       <Topbar />
 
-      <ProfileInfoBar2 childName={props.params.childName} />
+      <ProfileInfoBar2 childId={props.params.childId} />
       <div className="container mt-4 ">
         <Title level={4}>{recordingName}</Title>
       </div>

@@ -60,7 +60,7 @@ function StorySelection(props) {
 
     <Topbar />
 
-    <ProfileInfoBar2 childName={props.params.childName}/> 
+    <ProfileInfoBar2 childName={props.params.childName} childId={props.params.childName}/> 
 
     <div className="container mt-4 ">
     <Row gutter={16}>
