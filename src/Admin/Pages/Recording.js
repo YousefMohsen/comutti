@@ -1,7 +1,9 @@
 import Topbar from '../Components/Topbar'
 import ProfileInfoBar2 from '../Components/ProfileInfoBar2'
-import React, {Row} from 'react';
-import {Typography,Timeline} from 'antd';
+import React, { useState,useEffect } from 'react';
+import { getDocs,collection,addDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebase";
+import {Typography,Timeline, Row} from 'antd';
 import {useParams} from "react-router-dom";
 
 import "./SessionPlaying.css";
@@ -32,9 +34,9 @@ function Story(id, date, image, title)
  
 const story = Story("0", '2021-04-05 08:16:22', "/img/admin/dog.png", "Woof Story")
 
-const comment1 = Comment("0", "It is a dog", "0", '02:53');
-const comment2 = Comment("1", "No!", "0", '03:13');
-const comment3 = Comment("2", "Not audible", "6", '03:26');
+const comment1 = Comment("0", "It is a dog", "/img/admin/emoji_1.png", '02:53');
+const comment2 = Comment("1", "No!", "/img/admin/emoji_1.png", '03:13');
+const comment3 = Comment("2", "Not audible", "/img/admin/emoji_6.png", '03:26');
 
 const commentArray1 = [
     comment1,
@@ -110,13 +112,36 @@ const renderTimeline = (comment, index) => {
 console.log(comment);
 
     return(
-        <Timeline.Item>{comment.text}</Timeline.Item>
+        <Timeline.Item><img src={comment.emotion} alt="broken" height={20} width={20} /> "{comment.text}" ({comment.time})</Timeline.Item>
     )
   }
 
+  
+
 function SessionPlaying(props) {
 
-  const recording = recording1;
+  
+  //get the Recording table
+  const [RecordingData, setRecordingData] = useState([]);
+  useEffect(() => {
+      
+    async function fetchRecordings() {
+
+      collection(db, "Recording");
+      const fetchedData = await getDocs(collection(db, "Recording"));
+      const formatedList = fetchedData.docs.map(obj=>obj.data());
+      setRecordingData(formatedList);
+      console.log(formatedList);
+    }
+
+    fetchRecordings()
+  },[])
+
+  //find the right recording with the id in the path
+  const recording = 0;
+  
+
+  //const recording = recordings[props.params.recordingId];
   const recordingName = recording.story.title;
   const commentArray = recording.commentArray;
 

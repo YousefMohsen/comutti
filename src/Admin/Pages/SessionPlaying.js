@@ -2,7 +2,9 @@ import Topbar from '../Components/Topbar'
 import ProfileInfoBar2 from '../Components/ProfileInfoBar2'
 import React from 'react';
 import {Form, Radio, Typography, Input, Button, notification} from 'antd';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
+import {collection,addDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebase";
 
 import "./SessionPlaying.css";
 
@@ -32,20 +34,6 @@ const data = [
   },
 ];
 
-const onFinish = (values) => {
-  console.log('Success:', values);
-  notification.success({
-    message: 'Comment added succesfully'
-  });
-  //create the comment
-};
-
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-  notification.error({
-    message: 'An error occured'
-  });
-};
 
 const withRouter = WrappedComponent => props => {
   const params = useParams();
@@ -58,11 +46,89 @@ const withRouter = WrappedComponent => props => {
   );
 };
 
+function Comment(id, time, text, emoji) {
+  return {
+      id,
+      time,
+      text,
+      emoji,
+  }
+};
+
+let comments = [];
+let comment = Comment();
+let indexComment = 0;
+
+const onFinish = (values) => {
+  console.log(values)
+  if(values.text!==undefined||values.emoji!==undefined)
+  {
+    comment = Comment(indexComment, "124", values.text, values.emoji);
+    comments.push(comment);
+    console.log('success', comments);
+    notification.success({message: 'Comment added succesfully'});
+  }
+  else {
+    notification.error({message: 'You have to enter something'});
+  }
+};
+
+
+const onFinishFailed = (errorInfo) => {
+  console.log('Failed:', errorInfo);
+  notification.error({message: 'An error occured'});
+};
+
+const handleStop = (comments, story, duration) => {
+  console.log('Success:', comments);
+  //convert each object comment into a string and then push it into an array of string
+  let commentString = "";
+  let commentArrayString = [];
+  let comment = Comment();
+  for (let index = 0; index < comments.length; index++) {
+    comment = comments[index];
+    commentString = JSON.stringify(comment);
+    commentArrayString.push(commentString);
+  }
+  const currentDate = new Date();
+  const timestamp = currentDate.getTime();
+  //create new recording
+  addDoc(collection(db, "Recording"), {
+    comments: commentArrayString,
+    duration: duration,
+    story: story,
+    time: timestamp,
+  }).then(d=>{
+    console.log('success',d);
+    notification.success({
+      message: 'Session recorded correctly'
+    });
+  }).catch(er=>{
+    console.log("onAddnewRecording.ERROR: ",er);
+    notification.error({
+      message: 'An error occured during the recording of the session'
+    });
+  })
+};
+
+const handleStop2 = () => {
+  console.log('Success:', comments);
+  notification.success({
+    message: 'Session recorded correctly'
+  });
+};
+
+
 function SessionPlaying(props) {
 
+  const navigate = useNavigate();
+
+  
+  comments =[];
   const storyId=props.params.storyId;
   const storyIndex = data.findIndex(x => x.id === storyId);
-  const storyName = data[storyIndex].title;
+  const story = data[storyIndex];
+  const storyName = story.title;
 
   return (
     <React.Fragment>
@@ -75,7 +141,7 @@ function SessionPlaying(props) {
     </div>
     <div className="container mt-4 ">
       <Form name="commentForm" labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
-        <Form.Item name="emotion" rules={[{required: false}]}>
+        <Form.Item name="emoji" rules={[{required: false}]}>
           <Radio.Group>
             <Radio.Button value="1" style={{ height: 100}}><img src="/img/admin/emoji_1.png" alt="broken" height={100} width={100} /></Radio.Button>
             <Radio.Button value="2" style={{ height: 100}}><img src="/img/admin/emoji_2.png" alt="broken" height={100} width={100} /></Radio.Button>
@@ -89,7 +155,7 @@ function SessionPlaying(props) {
             <Radio.Button value="10" style={{ height: 100}}><img src="/img/admin/emoji_10.png" alt="broken" height={100} width={100} /></Radio.Button>
           </Radio.Group>
         </Form.Item>
-        <Form.Item name="comment" rules={[{ required: false, message: 'Dario is trying to say...' }]}>
+        <Form.Item name="text" rules={[{ required: false, message: 'Dario is trying to say...' }]}>
           <Input.TextArea/>
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
@@ -98,6 +164,11 @@ function SessionPlaying(props) {
           </Button>
         </Form.Item>
       </Form>
+
+      <Button type="primary" onClick={() => {handleStop(comments, story, '123') ;navigate('/admin/profile/'+props.params.childName)}}>
+        Finish Session
+      </Button>
+      
       </div>
     </React.Fragment>
 

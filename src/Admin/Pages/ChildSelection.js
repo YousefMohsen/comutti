@@ -1,10 +1,10 @@
 import Topbar from '../Components/Topbar';
 import ProfileInfoBar from '../Components/ProfileInfoBar';
-import React, { useState,useEffect } from 'react';
-import { getDocs,collection,addDoc } from "firebase/firestore";
 import { Table, Button, Modal, Form, InputNumber, Input, notification} from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useNavigate} from "react-router-dom";
+import React, { useState,useEffect } from 'react';
+import { getDocs,collection,addDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 
 const { Column } = Table;
@@ -137,13 +137,6 @@ function ChildSelection() {
       }}>
       <Column title="Name" dataIndex="name" key="name"/>
       <Column title="Age" dataIndex="age" key="age"/>
-      <Column title="Last Connection" dataIndex="lastConnection" key="lastConnection" 
-      sorter={{
-        compare: (a, b) => a - b,
-        multiple: 2,
-      }}
-      width="200px"
-      />
 
  
 

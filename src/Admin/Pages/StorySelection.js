@@ -66,7 +66,6 @@ function StorySelection(props) {
     <Row gutter={16}>
       {data.map((card,index)=>renderCard({card,childName:props.params.childName},index))}
     </Row>
-
     </div>)
     </React.Fragment>
 
