@@ -49,7 +49,7 @@ const renderCard = (data, index) => {
     <Col span={8}>
         <Card title={data.story.title} align-items="center" key={data.story.id} style={{ width: 300 }}>
           <p><img src={data.story.icon} alt="broken" height={150} width={150} /></p>
-          <p><Link to={`/admin/profile/stories/new/${data.childName}/${index}`}>Launch</Link></p>
+          <p><Link to={`/admin/profile/stories/new/${data.childName}/${data.story.id}`}>Launch</Link></p>
         </Card>
     </Col>
   )

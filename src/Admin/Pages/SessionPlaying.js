@@ -4,7 +4,7 @@ import {Form, Radio, Typography, Input, Button, notification, Spin} from 'antd';
 import {useNavigate, useParams} from "react-router-dom";
 import React, { useState,useEffect } from 'react';
 import { db } from "../../firebase/firebase";
-import {addDoc, getDoc, collection, doc, where, query, getDocs} from "firebase/firestore";
+import {addDoc, getDoc, collection, doc, where, query, setDoc} from "firebase/firestore";
 
 import "./SessionPlaying.css";
 
@@ -62,6 +62,7 @@ const onFinishFailed = (errorInfo) => {
 };
 
 const handleStop = (childId, comments, story, startTime) => {
+  console.log('story',story)
   console.log('Success:', comments);
   //convert each object comment into a string and then push it into an array of string
   let commentString = "";
@@ -84,6 +85,11 @@ const handleStop = (childId, comments, story, startTime) => {
     time: currentTime,
   }).then(d=>{
     console.log('success',d);
+    
+    setDoc(doc(db, "DeviceConnector", "2ZN0fs6xMbz93RjiXzrd"), {//end child session
+      storyStarted: false,
+    });
+
     notification.success({
       message: 'Session recorded correctly'
     });
@@ -116,12 +122,19 @@ function SessionPlaying(props) {
       console.log("No such document!");
     }
   };
+ const startStoryOnChildDevice = ()=>{
+   setDoc(doc(db, "DeviceConnector", "2ZN0fs6xMbz93RjiXzrd"), {
+    storyStarted: true,
+
+  });
+ }
+
   useEffect(() => {
     async function fetchData() {
       const storyID = props.params.storyId; 
       fetchProfileData(storyID);
     }
-
+    startStoryOnChildDevice();
     fetchData();
   }, []);
 
@@ -135,6 +148,10 @@ function SessionPlaying(props) {
   }
 
   console.log("story", storyData);
+  console.log("storyData", storyData);
+  
+
+
   const childId=props.params.childId;
   const storyName = storyData.title;
 

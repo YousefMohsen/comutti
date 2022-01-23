@@ -12,7 +12,6 @@ const { Title, Text } = Typography;
 //this is the profile info bar of a child profile
 
 function ProfileInfoBar2(props) {
-  console.log('bar.props',props)
   const [profileData, setProfileData] = useState("");
   const fetchProfileData = async (childID) => {
     //gets all recording for child with childID
