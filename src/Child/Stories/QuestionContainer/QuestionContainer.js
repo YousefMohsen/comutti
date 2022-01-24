@@ -18,7 +18,6 @@ const questionFeedBack  = (text)=>{
     if (!correctAnswer || number === +correctAnswer) {
       questionFeedBack("Good job! That is a correct answer!")
       next();
-      return;
     }
     else{
       questionFeedBack("That's not correct. Try again")
