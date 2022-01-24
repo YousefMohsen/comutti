@@ -747,7 +747,7 @@ function StoriesContainer() {
     );
   }
 
-  return <button onClick={() => talk("This is a test message to see if it works")}>talk</button>;
+  return content;
 }
 
 export default StoriesContainer;
