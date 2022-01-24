@@ -19,7 +19,10 @@ const questionFeedBack  = (text)=>{
       questionFeedBack("Good job! That is a correct answer!")
       next();
     }
-    questionFeedBack("That's not correct. Try again")
+    else{
+      questionFeedBack("That's not correct. Try again")
+
+    }
     switch (number) {
       case 1:
         setBtn1WrongClicked(true);
