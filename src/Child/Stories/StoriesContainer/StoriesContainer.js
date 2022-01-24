@@ -49,6 +49,7 @@ function StoriesContainer() {
       },
       {
         img: images[2].default,
+        dontAutomaticallyGoToNextFrame:true,
         text: "Are you a boy or a girl?",
         component: (
           <>
@@ -118,6 +119,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        dontAutomaticallyGoToNextFrame:true,
         text: "How do you think Marie is feeling?",
         component: (
           <>
@@ -174,6 +176,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        dontAutomaticallyGoToNextFrame:true,
         text: "What do you think Marie is going to see through the window ?",
         component: (
           <>
@@ -261,6 +264,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        dontAutomaticallyGoToNextFrame:true,
         text: "What do you think Marie is going to see through the window ?",
         component: (
           <>
@@ -348,6 +352,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        dontAutomaticallyGoToNextFrame:true,
         text: "What do you think Marie is going to see through the window ?",
         component: (
           <>
@@ -436,6 +441,7 @@ function StoriesContainer() {
       {
         img: images[7].default,
         text: "What do you think Marie is going to see through the window ?",
+        dontAutomaticallyGoToNextFrame:true,
         component: (
           <>
             <StoryText x="50%" y="20%">
@@ -523,6 +529,7 @@ function StoriesContainer() {
       {
         img: images[7].default,
         text: "What do you think Marie is going to see through the window ?",
+        dontAutomaticallyGoToNextFrame:true,
         component: (
           <>
             <StoryText x="50%" y="20%">
@@ -590,6 +597,7 @@ function StoriesContainer() {
       {
         img: images[7].default,
         text: "How do you think Marie is feeling?",
+        dontAutomaticallyGoToNextFrame:true,
         component: (
           <>
             <StoryText x="50%" y="20%">
@@ -686,6 +694,7 @@ function StoriesContainer() {
       {
         img: images[7].default,
         text: "How are you feeling at the end of our story?",
+        dontAutomaticallyGoToNextFrame:true,
         component: (
           <>
             <StoryText x="50%" y="20%">
@@ -742,12 +751,19 @@ function StoriesContainer() {
 
 
   useEffect(() => {
+    window.speechSynthesis.onvoiceschanged = () => {
+        console.log('voices ready');
+    }
     if(frames[currentStory].text) {
       const toSpeak = new SpeechSynthesisUtterance(frames[currentStory].text);
+      if(!frames[currentStory].dontAutomaticallyGoToNextFrame) {
+        toSpeak.onend = () => setTimeout(() => nextStory(),1500);
+      }
       const voice = window.speechSynthesis.getVoices();
       const voiceToSpeak = voice.find((v) => v.lang === "en-US");
       toSpeak.voice = voiceToSpeak;
       window.speechSynthesis.speak(toSpeak);
+      
     }
   }, [currentStory]);
 
