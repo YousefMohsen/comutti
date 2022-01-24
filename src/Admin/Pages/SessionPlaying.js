@@ -174,7 +174,7 @@ function SessionPlaying(props) {
           </div>
           <div className="col-6 ">
             <Title className="mt-b" level={4}>
-              {storyName}
+              {'Story recording'}
             </Title>
           </div>
         </div>
