@@ -2,6 +2,7 @@ import { useMemo, useState, useEffect } from "react";
 import QuestionContainer from "../QuestionContainer/QuestionContainer";
 import Button from "../StartButton/Button";
 import ImgContainer from "../StartPage/ImgContainer";
+import { useSpeechSynthesis } from "react-speech-kit";
 import StoryText from "../Text/StoryText";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
@@ -24,6 +25,7 @@ const images = Object.values(
 function StoriesContainer() {
   const [currentStory, setCurrentStory] = useState(1);
   const [storyStarted, setStoryStarted] = useState(0);
+  const { speak } = useSpeechSynthesis();
 
   useEffect(() => {
     const unsub = onSnapshot(
@@ -34,6 +36,12 @@ function StoriesContainer() {
       }
     );
   }, []);
+
+  const talk = (text) => {
+    speak({
+      text
+    });
+  };
 
   const nextStory = () => {
     setCurrentStory((prev) => prev + 1);
@@ -240,8 +248,8 @@ function StoriesContainer() {
         img: images[7].default,
         component: (
           <StoryText x="50%" y="70%">
-            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ”
-            says Marie
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says
+            Marie
           </StoryText>
         ),
         clickToContinue: true,
@@ -324,8 +332,8 @@ function StoriesContainer() {
         img: images[7].default,
         component: (
           <StoryText x="50%" y="70%">
-            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ”
-            says Marie
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says
+            Marie
           </StoryText>
         ),
         clickToContinue: true,
@@ -492,8 +500,8 @@ function StoriesContainer() {
         img: images[7].default,
         component: (
           <StoryText x="50%" y="70%">
-            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ”
-            says Marie
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says
+            Marie
           </StoryText>
         ),
         clickToContinue: true,
@@ -739,7 +747,7 @@ function StoriesContainer() {
     );
   }
 
-  return content;
+  return <button onClick={() => talk("This is a test message to see if it works")}>talk</button>;
 }
 
 export default StoriesContainer;
