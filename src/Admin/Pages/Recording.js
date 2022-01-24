@@ -30,12 +30,40 @@ const renderTimeline = (comment, index) => {
   let minute = com.time/1000;
   let imgSource = "/img/admin/emoji_"+com.emoji+".png";
   console.log(imgSource);
+  let isEmoji = true;
+  let isText = true;
+  if (com.text === "") {
+    //only print the emoji
+    isEmoji = true;
+    isText = false;
+    return (
+      <Timeline.Item isEmoji={false}>
+              <img src={imgSource} alt="broken" height={20} width={20}/> ({minute}s)
+      </Timeline.Item>
+      );
+  }
+  else if (com.emoji === undefined) {
+    //only print the text
+    isEmoji = false;
+    isText = true;
+    return (
+      <Timeline.Item isEmoji={false}>
+              "{com.text}" ({minute}s)
+      </Timeline.Item>
+      );
+  }
+  else
+  {
+    //print both
+    isEmoji = true;
+    isText = true;
+    return (
+      <Timeline.Item isEmoji={false}>
+              <img src={imgSource} alt="broken" height={20} width={20}/> "{com.text}" ({minute}s)
+      </Timeline.Item>
+      );
+  }
 
-  return (
-    <Timeline.Item>
-      <img src={imgSource} alt="broken" height={20} width={20} /> "{com.text}" ({minute}s)
-    </Timeline.Item>
-  );
 };
 
 function Recording(props) {
