@@ -1,8 +1,8 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import QuestionContainer from "../QuestionContainer/QuestionContainer";
 import Button from "../StartButton/Button";
 import ImgContainer from "../StartPage/ImgContainer";
-import { useSpeechSynthesis } from "react-speech-kit";
+
 import StoryText from "../Text/StoryText";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
@@ -25,23 +25,6 @@ const images = Object.values(
 function StoriesContainer() {
   const [currentStory, setCurrentStory] = useState(1);
   const [storyStarted, setStoryStarted] = useState(0);
-  const { speak } = useSpeechSynthesis();
-
-  useEffect(() => {
-    const unsub = onSnapshot(
-      doc(db, "DeviceConnector", "2ZN0fs6xMbz93RjiXzrd"),
-      (doc) => {
-        console.log("Current data: ", doc.data());
-        setStoryStarted(doc.data().storyStarted);
-      }
-    );
-  }, []);
-
-  const talk = (text) => {
-    speak({
-      text
-    });
-  };
 
   const nextStory = () => {
     setCurrentStory((prev) => prev + 1);
@@ -66,6 +49,7 @@ function StoriesContainer() {
       },
       {
         img: images[2].default,
+        text: "Are you a boy or a girl?",
         component: (
           <>
             <Button x="85%" y="70%" color="#058ED9" clicked={nextStory}>
@@ -74,11 +58,15 @@ function StoriesContainer() {
             <Button x="20%" y="70%" color="#F49097" clicked={nextStory}>
               Girl
             </Button>
+            <StoryText x="50%" y="85%">
+              Are you a boy or a girl?
+            </StoryText>
           </>
         ),
       },
       {
         img: images[4].default,
+        text: "There is a girl named Marie. Marie have a friend named James at school.",
         component: (
           <StoryText x="50%" y="70%">
             There is a girl named Marie. Marie have a friend named James at
@@ -89,6 +77,7 @@ function StoriesContainer() {
       },
       {
         img: images[4].default,
+        text: "One day James invited Marie over to his house to play.",
         component: (
           <StoryText x="50%" y="70%">
             One day James invited Marie over to his house to play.
@@ -98,6 +87,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "When they arrived at James house they sat down on the sofa.",
         component: (
           <StoryText x="50%" y="70%">
             When they arrived at James house they sat down on the sofa.
@@ -107,6 +97,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "They were chatting away when suddenly they heard a sound “WOOF WOOF”.",
         component: (
           <StoryText x="50%" y="70%">
             They were chatting away when suddenly they heard a sound “WOOF
@@ -726,6 +717,28 @@ function StoriesContainer() {
     []
   );
 
+
+  useEffect(() => {
+    if(frames[currentStory].text) {
+      const toSpeak = new SpeechSynthesisUtterance(frames[currentStory].text);
+      const voice = window.speechSynthesis.getVoices();
+      const voiceToSpeak = voice.find((v) => v.lang === "en-US");
+      toSpeak.voice = voiceToSpeak;
+      window.speechSynthesis.speak(toSpeak);
+    }
+  }, [currentStory]);
+
+  useEffect(() => {
+    const unsub = onSnapshot(
+      doc(db, "DeviceConnector", "2ZN0fs6xMbz93RjiXzrd"),
+      (doc) => {
+        console.log("Current data: ", doc.data());
+        setStoryStarted(doc.data().storyStarted);
+      }
+    );
+  }, []);
+
+
   let content;
   console.log("storyStarted", storyStarted);
   if (!storyStarted) {
@@ -747,7 +760,7 @@ function StoriesContainer() {
     );
   }
 
-  return <button onClick={() => talk("This is a test message to see if it works")}>talk</button>;
+  return content;
 }
 
 export default StoriesContainer;
