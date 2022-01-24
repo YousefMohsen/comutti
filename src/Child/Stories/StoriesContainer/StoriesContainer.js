@@ -156,7 +156,7 @@ function StoriesContainer() {
                   }
                 />
               }
-              correctAnswer="1"
+              correctAnswer="2"
               next={nextStory}
             />
           </>
