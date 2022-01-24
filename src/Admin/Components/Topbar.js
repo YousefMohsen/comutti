@@ -23,7 +23,7 @@ function Topbar({ userLoggedIn = true }) {
             size="medium"
           />
 
-          <p>Mario Snow</p>
+          <p>Mario</p>
           <TranslationOutlined style={{ marginLeft: "15px" }} />
         </div>
       </div>
