@@ -97,7 +97,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
-        text: "They were chatting away when suddenly they heard a sound “WOOF WOOF”.",
+        text: "They were chatting away when suddenly they heard a sound “woof woof”.",
         component: (
           <StoryText x="50%" y="70%">
             They were chatting away when suddenly they heard a sound “WOOF
@@ -108,16 +108,17 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "“Oh dear ! What’s that I hear, tell me it’s nothing to fear !” says Marie.",
         component: (
           <StoryText x="50%" y="70%">
-            “Oh dear ! What’s that I hear, tell me it’s nothing to fear !” says
-            Marie.
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear !” says Marie.
           </StoryText>
         ),
         clickToContinue: true,
       },
       {
         img: images[7].default,
+        text: "How do you think Marie is feeling?",
         component: (
           <>
             <StoryText x="50%" y="20%">
@@ -163,6 +164,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "“Don’t be silly! look at the window and you shall see” replied James",
         component: (
           <StoryText x="50%" y="70%">
             “Don’t be silly look at the window and you shall see” replied James
@@ -172,6 +174,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "What do you think Marie is going to see through the window ?",
         component: (
           <>
             <StoryText x="50%" y="20%">
@@ -218,6 +221,7 @@ function StoriesContainer() {
       },
       {
         img: images[12].default,
+        text: "She saw a dog ”woof woof!”",
         component: (
           <StoryText x="50%" y="70%">
             She saw a dog “WOOF WOOF”
@@ -227,26 +231,27 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "They went back chatting away when suddenly they heard another sound “meow meow”.",
         component: (
           <StoryText x="50%" y="70%">
-            They went back chatting away when suddenly they heard another sound
-            “MEOW MEOW”.
+            They went back chatting away when suddenly they heard another sound “MEOW MEOW”.
           </StoryText>
         ),
         clickToContinue: true,
       },
       {
         img: images[7].default,
+        text: "“Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says Marie",
         component: (
           <StoryText x="50%" y="70%">
-            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says
-            Marie
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says Marie
           </StoryText>
         ),
         clickToContinue: true,
       },
       {
         img: images[7].default,
+        text: "“Don’t be silly! look at the window and you shall see” replied James",
         component: (
           <StoryText x="50%" y="70%">
             “Don’t be silly look at the window and you shall see” replied James
@@ -256,6 +261,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "What do you think Marie is going to see through the window ?",
         component: (
           <>
             <StoryText x="50%" y="20%">
@@ -302,6 +308,7 @@ function StoriesContainer() {
       },
       {
         img: images[17].default,
+        text: "She did just that and saw a cat “meow meow”",
         component: (
           <StoryText x="50%" y="70%">
             She did just that and saw a cat “MEOW MEOW”
@@ -311,26 +318,27 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "They went back chatting away when suddenly they heard another sound “quack quack”.",
         component: (
           <StoryText x="50%" y="70%">
-            They went back chatting away when suddenly they heard another sound
-            “QUACK QUACK”.
+            They went back chatting away when suddenly they heard another sound “QUACK QUACK”.
           </StoryText>
         ),
         clickToContinue: true,
       },
       {
         img: images[7].default,
+        text: "“Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says Marie",
         component: (
           <StoryText x="50%" y="70%">
-            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says
-            Marie
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says Marie
           </StoryText>
         ),
         clickToContinue: true,
       },
       {
         img: images[7].default,
+        text: "“Don’t be silly! look at the window and you shall see” replied James",
         component: (
           <StoryText x="50%" y="70%">
             “Don’t be silly look at the window and you shall see” replied James
@@ -340,6 +348,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "What do you think Marie is going to see through the window ?",
         component: (
           <>
             <StoryText x="50%" y="20%">
@@ -386,6 +395,7 @@ function StoriesContainer() {
       },
       {
         img: images[22].default,
+        text: "She did just that and saw a duck “quack quack”",
         component: (
           <StoryText x="50%" y="70%">
             She did just that and saw a duck “QUACK QUACK”
@@ -395,26 +405,27 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "They went back chatting away when suddenly they heard another sound “oink oink”.",
         component: (
           <StoryText x="50%" y="70%">
-            They went back chatting away when suddenly they heard another sound
-            “OINK OINK”.
+            They went back chatting away when suddenly they heard another sound “OINK OINK”.
           </StoryText>
         ),
         clickToContinue: true,
       },
       {
         img: images[7].default,
+        text: "“Oh dear ! What’s that I hear, tell me it’s nothing to fear !” says Marie.",
         component: (
           <StoryText x="50%" y="70%">
-            “Oh dear ! What’s that I hear, tell me it’s nothing to fear !” says
-            Marie.
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear !” says Marie.
           </StoryText>
         ),
         clickToContinue: true,
       },
       {
         img: images[7].default,
+        text: "“Don’t be silly! look at the window and you shall see” replied James",
         component: (
           <StoryText x="50%" y="70%">
             “Don’t be silly look at the window and you shall see” replied James
@@ -424,6 +435,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "What do you think Marie is going to see through the window ?",
         component: (
           <>
             <StoryText x="50%" y="20%">
@@ -470,6 +482,7 @@ function StoriesContainer() {
       },
       {
         img: images[27].default,
+        text: "She did just that and saw a pig “oink oink”",
         component: (
           <StoryText x="50%" y="70%">
             She did just that and saw a pig “OINK OINK”
@@ -479,26 +492,27 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "They went back chatting away when suddenly they heard another sound “moo moo”.",
         component: (
           <StoryText x="50%" y="70%">
-            They went back chatting away when suddenly they heard another sound
-            “MOO MOO”.
+            They went back chatting away when suddenly they heard another sound “MOO MOO”.
           </StoryText>
         ),
         clickToContinue: true,
       },
       {
         img: images[7].default,
+        text: "“Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says Marie",
         component: (
           <StoryText x="50%" y="70%">
-            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says
-            Marie
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says Marie
           </StoryText>
         ),
         clickToContinue: true,
       },
       {
         img: images[7].default,
+        text: "“Don’t be silly! look at the window and you shall see” replied James",
         component: (
           <StoryText x="50%" y="70%">
             “Don’t be silly look at the window and you shall see” replied James
@@ -508,6 +522,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "What do you think Marie is going to see through the window ?",
         component: (
           <>
             <StoryText x="50%" y="20%">
@@ -554,6 +569,7 @@ function StoriesContainer() {
       },
       {
         img: images[32].default,
+        text: "She did just that and saw a cow “moo moo”",
         component: (
           <StoryText x="50%" y="70%">
             She did just that and saw a cow “MOO MOO”
@@ -563,6 +579,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "The day has arrived for Marie’s visit to end.",
         component: (
           <StoryText x="50%" y="70%">
             The day has arrived for Marie’s visit to end.
@@ -572,6 +589,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "How do you think Marie is feeling?",
         component: (
           <>
             <StoryText x="50%" y="20%">
@@ -617,16 +635,17 @@ function StoriesContainer() {
       },
       {
         img: images[35].default,
+        text: "As they said goddbye Marie said that she’ll miss the dog going “woof woof”",
         component: (
           <StoryText x="50%" y="70%">
-            As they said goddbye Marie said that she’ll miss the dog going “WOOF
-            WOOF”
+            As they said goddbye Marie said that she’ll miss the dog going “WOOF WOOF”
           </StoryText>
         ),
         clickToContinue: true,
       },
       {
         img: images[36].default,
+        text: "The cat going “meow meow”",
         component: (
           <StoryText x="50%" y="70%">
             The cat going “ MEOW MEOW”
@@ -636,6 +655,7 @@ function StoriesContainer() {
       },
       {
         img: images[37].default,
+        text: "The duck going “quack quack”",
         component: (
           <StoryText x="50%" y="70%">
             The duck going “QUACK QUACK”
@@ -645,6 +665,7 @@ function StoriesContainer() {
       },
       {
         img: images[38].default,
+        text: "The pig going “oink oink”",
         component: (
           <StoryText x="50%" y="70%">
             The pig going “OINK OINK”
@@ -654,6 +675,7 @@ function StoriesContainer() {
       },
       {
         img: images[39].default,
+        text: "And the cow going “moo moo”",
         component: (
           <StoryText x="50%" y="70%">
             And the cow going “MOO MOO”
@@ -663,6 +685,7 @@ function StoriesContainer() {
       },
       {
         img: images[7].default,
+        text: "How are you feeling at the end of our story?",
         component: (
           <>
             <StoryText x="50%" y="20%">
