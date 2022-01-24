@@ -111,7 +111,7 @@ function StoriesContainer() {
         img: images[7].default,
         component: (
           <StoryText x="50%" y="70%">
-            “How dear ! What’s that I hear, tell me it’s nothing to fear !” says
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear !” says
             Marie.
           </StoryText>
         ),
@@ -240,7 +240,7 @@ function StoriesContainer() {
         img: images[7].default,
         component: (
           <StoryText x="50%" y="70%">
-            “How dear ! What’s that I hear, tell me it’s nothing to fear ! ”
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ”
             says Marie
           </StoryText>
         ),
@@ -324,7 +324,7 @@ function StoriesContainer() {
         img: images[7].default,
         component: (
           <StoryText x="50%" y="70%">
-            “How dear ! What’s that I hear, tell me it’s nothing to fear ! ”
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ”
             says Marie
           </StoryText>
         ),
@@ -408,7 +408,7 @@ function StoriesContainer() {
         img: images[7].default,
         component: (
           <StoryText x="50%" y="70%">
-            “How dear ! What’s that I hear, tell me it’s nothing to fear !” says
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear !” says
             Marie.
           </StoryText>
         ),
@@ -492,7 +492,7 @@ function StoriesContainer() {
         img: images[7].default,
         component: (
           <StoryText x="50%" y="70%">
-            “How dear ! What’s that I hear, tell me it’s nothing to fear ! ”
+            “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ”
             says Marie
           </StoryText>
         ),
