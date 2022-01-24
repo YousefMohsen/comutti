@@ -74,7 +74,6 @@ function StoriesContainer() {
             school.
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[4].default,
@@ -84,7 +83,6 @@ function StoriesContainer() {
             One day James invited Marie over to his house to play.
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -94,7 +92,6 @@ function StoriesContainer() {
             When they arrived at James house they sat down on the sofa.
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -105,7 +102,6 @@ function StoriesContainer() {
             WOOF”.
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -115,7 +111,6 @@ function StoriesContainer() {
             “Oh dear ! What’s that I hear, tell me it’s nothing to fear !” says Marie.
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -172,7 +167,6 @@ function StoriesContainer() {
             “Don’t be silly look at the window and you shall see” replied James
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -230,7 +224,6 @@ function StoriesContainer() {
             She saw a dog “WOOF WOOF”
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -240,7 +233,6 @@ function StoriesContainer() {
             They went back chatting away when suddenly they heard another sound “MEOW MEOW”.
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -250,7 +242,6 @@ function StoriesContainer() {
             “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says Marie
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -260,7 +251,6 @@ function StoriesContainer() {
             “Don’t be silly look at the window and you shall see” replied James
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -318,7 +308,6 @@ function StoriesContainer() {
             She did just that and saw a cat “MEOW MEOW”
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -328,7 +317,6 @@ function StoriesContainer() {
             They went back chatting away when suddenly they heard another sound “QUACK QUACK”.
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -338,7 +326,6 @@ function StoriesContainer() {
             “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says Marie
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -348,7 +335,6 @@ function StoriesContainer() {
             “Don’t be silly look at the window and you shall see” replied James
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -406,7 +392,6 @@ function StoriesContainer() {
             She did just that and saw a duck “QUACK QUACK”
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -416,7 +401,6 @@ function StoriesContainer() {
             They went back chatting away when suddenly they heard another sound “OINK OINK”.
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -426,7 +410,6 @@ function StoriesContainer() {
             “Oh dear ! What’s that I hear, tell me it’s nothing to fear !” says Marie.
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -436,7 +419,6 @@ function StoriesContainer() {
             “Don’t be silly look at the window and you shall see” replied James
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -494,7 +476,6 @@ function StoriesContainer() {
             She did just that and saw a pig “OINK OINK”
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -504,7 +485,6 @@ function StoriesContainer() {
             They went back chatting away when suddenly they heard another sound “MOO MOO”.
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -514,7 +494,6 @@ function StoriesContainer() {
             “Oh dear ! What’s that I hear, tell me it’s nothing to fear ! ” says Marie
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -524,7 +503,6 @@ function StoriesContainer() {
             “Don’t be silly look at the window and you shall see” replied James
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -582,7 +560,6 @@ function StoriesContainer() {
             She did just that and saw a cow “MOO MOO”
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -592,7 +569,6 @@ function StoriesContainer() {
             The day has arrived for Marie’s visit to end.
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -649,7 +625,6 @@ function StoriesContainer() {
             As they said goddbye Marie said that she’ll miss the dog going “WOOF WOOF”
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[36].default,
@@ -659,7 +634,6 @@ function StoriesContainer() {
             The cat going “ MEOW MEOW”
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[37].default,
@@ -669,7 +643,6 @@ function StoriesContainer() {
             The duck going “QUACK QUACK”
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[38].default,
@@ -679,7 +652,6 @@ function StoriesContainer() {
             The pig going “OINK OINK”
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[39].default,
@@ -689,7 +661,6 @@ function StoriesContainer() {
             And the cow going “MOO MOO”
           </StoryText>
         ),
-        clickToContinue: true,
       },
       {
         img: images[7].default,
@@ -787,7 +758,6 @@ function StoriesContainer() {
   if (frames[currentStory].component) {
     content = (
       <ImgContainer
-        clicked={frames[currentStory].clickToContinue ? nextStory : null}
         img={frames[currentStory].img}
       >
         {frames[currentStory].component}
@@ -795,7 +765,7 @@ function StoriesContainer() {
     );
   } else {
     content = (
-      <ImgContainer clicked={nextStory} img={frames[currentStory].img} />
+      <ImgContainer img={frames[currentStory].img} />
     );
   }
 
