@@ -18,6 +18,7 @@ const questionFeedBack  = (text)=>{
     if (!correctAnswer || number === +correctAnswer) {
       questionFeedBack("Good job! That is a correct answer!")
       next();
+      return;
     }
     questionFeedBack("That's not correct. Try again")
     switch (number) {
