@@ -57,7 +57,22 @@ function ProfileSection(props) {
     const mappedRecordings = [];
     querySnapshot.forEach((doc) => {
         const docData = doc.data()
-      mappedRecordings.push({ ...docData, id: doc.id, title: docData.story.title });
+        let unix_timestamp = docData.time;
+        let date = new Date(unix_timestamp);
+        let day = date.getDate();
+        let month = date.getMonth() +1;
+        let year = date.getFullYear();
+        // Hours part from the timestamp
+        var hours = date.getHours();
+        // Minutes part from the timestamp
+        var minutes = "0" + date.getMinutes();
+        // Seconds part from the timestamp
+        var seconds = "0" + date.getSeconds();
+        
+        // Will display time in 10:30:23 format
+        var formattedDate = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+        
+      mappedRecordings.push({ ...docData, id: doc.id, title: docData.story.title, date: formattedDate });
     });
 
     setRecordings(mappedRecordings);
