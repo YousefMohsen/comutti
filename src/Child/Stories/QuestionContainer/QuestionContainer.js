@@ -6,12 +6,20 @@ function QuestionContainer({ bt1, bt2, bt3, bt4, correctAnswer, next }) {
   const [btn2WrongClicked, setBtn2WrongClicked] = useState(false);
   const [btn3WrongClicked, setBtn3WrongClicked] = useState(false);
   const [btn4WrongClicked, setBtn4WrongClicked] = useState(false);
-
+const questionFeedBack  = (text)=>{
+    const toSpeak = new SpeechSynthesisUtterance(text);
+    const voice = window.speechSynthesis.getVoices();
+    const voiceToSpeak = voice.find((v) => v.lang === "en-US");
+    toSpeak.voice = voiceToSpeak;
+    window.speechSynthesis.speak(toSpeak);
+    
+}
   const btnClicked = (number) => {
     if (!correctAnswer || number === +correctAnswer) {
+      questionFeedBack("Good job! That is a correct answer!")
       next();
     }
-
+    questionFeedBack("That's not correct. Try again")
     switch (number) {
       case 1:
         setBtn1WrongClicked(true);
